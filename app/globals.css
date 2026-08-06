@@ -92,21 +92,41 @@ img {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
   flex: 0 0 auto;
 }
 
 .brand-mark {
-  width: 35px;
-  height: 35px;
+  position: relative;
+  width: 38px;
+  height: 38px;
   display: grid;
   place-items: center;
+  overflow: hidden;
+  flex: 0 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  background: var(--forest);
+  background:
+    radial-gradient(circle at 52% 50%, rgba(197, 154, 98, 0.16), transparent 38%),
+    linear-gradient(145deg, var(--forest-soft), var(--forest-deep));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.brand-infinity {
   color: var(--cream);
   font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  text-shadow: 0 1px 10px rgba(243, 236, 223, 0.18);
+  transform: translateY(-1px) scaleX(1.08);
+}
+
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
 .brand-name {
@@ -115,6 +135,16 @@ img {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.brand-tagline {
+  color: #72807b;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .desktop-nav {
@@ -265,6 +295,15 @@ img {
   text-transform: uppercase;
 }
 
+.eyebrow::before {
+  content: "";
+  width: 21px;
+  height: 1px;
+  flex: 0 0 auto;
+  background: currentColor;
+  box-shadow: 6px 3px 0 -0.2px var(--gold);
+}
+
 h1,
 h2,
 h3,
@@ -286,11 +325,15 @@ h2 {
 }
 
 .hero h1 {
-  max-width: 640px;
+  max-width: 590px;
   margin-bottom: 26px;
   color: var(--forest-deep);
-  font-size: clamp(48px, 5.5vw, 76px);
-  line-height: 0.98;
+  font-size: clamp(44px, 4.7vw, 64px);
+  line-height: 1.02;
+}
+
+.hero h1 span {
+  color: var(--forest-soft);
 }
 
 .hero-lede {
@@ -342,6 +385,7 @@ h2 {
   position: relative;
   overflow: hidden;
   min-height: 610px;
+  border-top: 8px solid rgba(255, 255, 255, 0.94);
   border-radius: 2px 112px 2px 2px;
   background: #d7c9b7;
   box-shadow: 0 35px 80px rgba(23, 58, 50, 0.16);
@@ -391,33 +435,22 @@ h2 {
   line-height: 1.35;
 }
 
-.hero-seal {
+.hero-brand-mark {
   position: absolute;
-  right: 0;
-  top: 52px;
-  width: 95px;
-  height: 95px;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  background: rgba(243, 236, 223, 0.88);
-  color: var(--forest);
-  box-shadow: 0 12px 28px rgba(15, 44, 38, 0.15);
-  backdrop-filter: blur(8px);
+  z-index: 4;
+  left: 46px;
+  top: -26px;
+  width: 94px;
+  height: 94px;
+  border-width: 2px;
+  box-shadow:
+    0 0 0 8px var(--paper),
+    0 18px 38px rgba(15, 44, 38, 0.24);
 }
 
-.hero-seal span {
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-}
-
-.hero-seal strong {
-  margin: -2px 0;
-  font-family: var(--serif);
-  font-size: 26px;
+.hero-brand-mark .brand-infinity {
+  font-size: 66px;
+  letter-spacing: -0.12em;
 }
 
 .signal-strip {
@@ -718,6 +751,13 @@ h2 {
   letter-spacing: 0.06em;
 }
 
+.range-context {
+  margin: 8px 0 0;
+  color: #90a39a;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
 .calculator-results {
   padding: clamp(32px, 5vw, 58px);
   background: var(--cream);
@@ -809,6 +849,35 @@ h2 {
 .break-even strong {
   color: var(--forest-deep);
   font-size: 12px;
+}
+
+.model-formula {
+  display: grid;
+  gap: 4px;
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid rgba(23, 58, 50, 0.13);
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.model-formula span {
+  color: var(--forest-soft);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.model-formula strong {
+  color: var(--forest-deep);
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.model-formula small {
+  color: var(--muted);
+  font-size: 10px;
 }
 
 .calculator-results > p {
@@ -1045,8 +1114,8 @@ h2 {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr 1fr;
-  gap: 50px;
+  grid-template-columns: 1.02fr 1.35fr 0.86fr;
+  gap: clamp(32px, 4vw, 58px);
   padding-top: 38px;
   border-top: 1px solid var(--line);
 }
@@ -1065,11 +1134,47 @@ h2 {
 }
 
 .footer-links a,
+.footer-team a,
 .footer-action a,
 .footer-action span {
   color: #52605b;
   font-size: 12px;
   font-weight: 650;
+}
+
+.footer-navigation {
+  align-content: start;
+  display: grid;
+  grid-template-columns: 0.58fr 1.42fr;
+  gap: clamp(24px, 3vw, 44px);
+}
+
+.footer-label {
+  color: var(--forest);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.footer-team {
+  align-content: start;
+  display: grid;
+  gap: 9px;
+}
+
+.footer-team p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.footer-team a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--forest);
 }
 
 .footer-action {
@@ -1146,7 +1251,7 @@ h2 {
   }
 
   .hero h1 {
-    font-size: 58px;
+    font-size: 54px;
   }
 
   .image-frame {
@@ -1183,7 +1288,7 @@ h2 {
 
   .hero h1 {
     max-width: 700px;
-    font-size: clamp(54px, 10vw, 78px);
+    font-size: clamp(48px, 8vw, 64px);
   }
 
   .hero-visual {
@@ -1263,7 +1368,11 @@ h2 {
   }
 
   .footer-grid {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-navigation {
+    grid-template-columns: 0.62fr 1.38fr;
   }
 
   .footer-action {
@@ -1291,7 +1400,7 @@ h2 {
   }
 
   .hero h1 {
-    font-size: clamp(47px, 14.5vw, 66px);
+    font-size: clamp(42px, 12.5vw, 56px);
   }
 
   .hero-lede {
@@ -1331,19 +1440,14 @@ h2 {
     width: calc(100% - 34px);
   }
 
-  .hero-seal {
-    right: -4px;
-    top: 42px;
-    width: 79px;
-    height: 79px;
-  }
-
-  .hero-seal strong {
-    font-size: 21px;
-  }
-
-  .hero-seal span {
-    font-size: 7px;
+  .hero-brand-mark {
+    left: 28px;
+    top: -24px;
+    width: 78px;
+    height: 78px;
+    box-shadow:
+      0 0 0 6px var(--paper),
+      0 14px 30px rgba(15, 44, 38, 0.22);
   }
 
   .signal-grid > div {
@@ -1440,6 +1544,10 @@ h2 {
   }
 
   .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-navigation {
     grid-template-columns: 1fr;
   }
 

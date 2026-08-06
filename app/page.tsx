@@ -9,9 +9,8 @@ import {
   LineChart,
   Settings2,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
-import { Footer, Header, bookingUrl } from "./_components/chrome";
+import { BrandMark, Footer, Header, bookingUrl } from "./_components/chrome";
 import { RoiCalculator } from "./_components/roi-calculator";
 import heroImage from "../public/hero-family.webp";
 
@@ -32,7 +31,7 @@ const benefits = [
   {
     icon: HeartHandshake,
     title: "Loyalty with emotional weight",
-    body: "Move beyond points and discounts with support members can genuinely value—and families can remember.",
+    body: "Move beyond points and discounts with support members can genuinely value. It gives families something worth remembering.",
   },
   {
     icon: LineChart,
@@ -55,7 +54,7 @@ const steps = [
   {
     number: "02",
     title: "Offer it exclusively",
-    body: "Introduce Member Legacy as a clear membership benefit—not a promotion available to everyone.",
+    body: "Introduce Member Legacy as a clear membership benefit, not a promotion available to everyone.",
   },
   {
     number: "03",
@@ -73,7 +72,7 @@ const faqs = [
   {
     question: "How much does the program cost?",
     answer:
-      "The current planning range is $0.05–$0.50 per member per month. Actual pricing depends on the benefit design, member population, eligibility, duration, administration, and other agreed program terms.",
+      "The current planning range runs from $0.05 to $0.50 per member per month. Actual pricing depends on the benefit design, member population, eligibility, duration, administration, and other agreed program terms.",
   },
   {
     question: "Is a retention lift guaranteed?",
@@ -107,14 +106,16 @@ export default function Home() {
           <div className="shell hero-grid">
             <div className="hero-copy">
               <div className="eyebrow">
-                <Sparkles aria-hidden="true" size={15} />
-                A legacy benefit for membership brands
+                A family continuity benefit for membership brands
               </div>
-              <h1>Turn membership into something families remember.</h1>
+              <h1>
+                Turn membership into something <span>families remember.</span>
+              </h1>
               <p className="hero-lede">
-                When a member passes away, their family receives a monthly allowance redeemable
-                within your brand—support that is deeply human, commercially disciplined, and
-                designed for low operational lift.
+                Member Legacy is designed so an eligible member&apos;s family can receive a defined
+                monthly allowance within the sponsoring brand if the unexpected happens. It
+                combines a deeply human promise with commercial discipline and a practical
+                operating model.
               </p>
               <div className="hero-actions">
                 <Link className="button" href="#economics">
@@ -149,14 +150,10 @@ export default function Home() {
                   preload
                 />
               </div>
+              <BrandMark className="hero-brand-mark" />
               <div className="hero-quote">
                 <span aria-hidden="true">“</span>
                 <p>A benefit competitors cannot copy with another discount.</p>
-              </div>
-              <div className="hero-seal" aria-hidden="true">
-                <span>MEMBER</span>
-                <strong>ML</strong>
-                <span>LEGACY</span>
               </div>
             </div>
           </div>
@@ -165,8 +162,8 @@ export default function Home() {
         <section className="signal-strip" aria-label="Program highlights">
           <div className="shell signal-grid">
             <div>
-              <strong>$0.05–$0.50</strong>
-              <span>current planning range per member / month</span>
+              <strong>$0.05 to $0.50</strong>
+              <span>current planning range per active member each month</span>
             </div>
             <div>
               <strong>Brand-contained</strong>
@@ -188,7 +185,7 @@ export default function Home() {
               </div>
               <p>
                 Most loyalty programs optimize transactions. Member Legacy is designed to create a
-                different kind of bond—one grounded in belonging, reciprocity, and continuity.
+                different kind of bond, one grounded in belonging, reciprocity, and continuity.
               </p>
             </div>
             <div className="benefit-grid">
@@ -228,8 +225,8 @@ export default function Home() {
             <div className="program-note">
               <ShieldCheck aria-hidden="true" size={24} strokeWidth={1.5} />
               <p>
-                Final terms—including eligibility, funding, administration, redemption, and compliance—are
-                defined for each program before member-facing communication begins.
+                Final terms cover eligibility, funding, administration, redemption, and compliance.
+                They are defined for each program before member-facing communication begins.
               </p>
             </div>
           </div>

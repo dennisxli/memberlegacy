@@ -4,13 +4,22 @@ import Link from "next/link";
 export const bookingUrl =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1zT2d0RBzAIheRyP2pozY7ryFLI5lKkK8fjzkujOfai9B5xPkFYMTxIPPwC8dbACG9ZP1BL5kX";
 
+export function BrandMark({ className = "" }: { className?: string }) {
+  return (
+    <span className={`brand-mark ${className}`.trim()} aria-hidden="true">
+      <span className="brand-infinity">∞</span>
+    </span>
+  );
+}
+
 export function Brand() {
   return (
     <Link className="brand" href="/" aria-label="Member Legacy home">
-      <span className="brand-mark" aria-hidden="true">
-        M
+      <BrandMark />
+      <span className="brand-lockup">
+        <span className="brand-name">Member Legacy</span>
+        <span className="brand-tagline">Continuity by design</span>
       </span>
-      <span className="brand-name">Member Legacy</span>
     </Link>
   );
 }
@@ -67,17 +76,31 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="shell footer-grid">
-        <div>
+        <div className="footer-brand">
           <Brand />
           <p className="footer-note">
             A lasting member benefit, built around family and brand loyalty.
           </p>
         </div>
-        <div className="footer-links" aria-label="Footer navigation">
-          <Link href="/#how-it-works">How it works</Link>
-          <Link href="/#economics">Economics</Link>
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/terms">Terms</Link>
+        <div className="footer-navigation">
+          <div className="footer-links" aria-label="Footer navigation">
+            <Link href="/#how-it-works">How it works</Link>
+            <Link href="/#economics">Economics</Link>
+            <a href="#team">The team</a>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+          </div>
+          <div className="footer-team" id="team">
+            <span className="footer-label">The team</span>
+            <p>
+              Dennis X. Li leads Member Legacy. His work spans growth strategy, distribution,
+              partnerships, and technology across the life insurance value chain.
+            </p>
+            <a href="https://dennisx.com" target="_blank" rel="noreferrer">
+              View Dennis&apos;s profile
+              <ArrowUpRight aria-hidden="true" size={15} />
+            </a>
+          </div>
         </div>
         <div className="footer-action">
           <a href={bookingUrl} target="_blank" rel="noreferrer">
