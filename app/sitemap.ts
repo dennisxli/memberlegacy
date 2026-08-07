@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-08-05T00:00:00.000Z");
+  const lastModified = new Date("2026-08-07T00:00:00.000Z");
 
   return [
     {
@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 1,
+    },
+    {
+      url: "https://memberlegacy.com/team",
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
     {
       url: "https://memberlegacy.com/privacy",

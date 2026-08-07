@@ -1146,60 +1146,6 @@ h2 {
   max-width: 360px;
 }
 
-.footer-team-details summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  width: 100%;
-  color: #52605b;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 650;
-  list-style: none;
-}
-
-.footer-team-details summary::-webkit-details-marker {
-  display: none;
-}
-
-.footer-team-details summary svg {
-  flex: 0 0 auto;
-  transition: transform 180ms ease;
-}
-
-.footer-team-details[open] summary svg {
-  transform: rotate(180deg);
-}
-
-.footer-team-profile {
-  display: grid;
-  gap: 8px;
-  margin: 12px 0 5px;
-  padding: 2px 0 2px 14px;
-  border-left: 1px solid rgba(23, 58, 50, 0.2);
-}
-
-.footer-team-profile strong {
-  color: var(--forest-deep);
-  font-family: var(--serif);
-  font-size: 15px;
-}
-
-.footer-team-profile p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.65;
-}
-
-.footer-team-profile a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--forest);
-}
-
 .footer-action {
   display: flex;
   flex-direction: column;
@@ -1213,6 +1159,136 @@ h2 {
   align-items: center;
   gap: 8px;
   color: var(--forest);
+}
+
+.team-main {
+  background: linear-gradient(180deg, var(--cream) 0, var(--paper) 620px);
+}
+
+.team-hero {
+  padding: clamp(86px, 10vw, 132px) 0 clamp(100px, 12vw, 154px);
+}
+
+.team-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(440px, 1.18fr);
+  align-items: center;
+  gap: clamp(54px, 8vw, 112px);
+}
+
+.team-intro h1 {
+  max-width: 570px;
+  margin: 18px 0 26px;
+  color: var(--forest-deep);
+  font-size: clamp(52px, 6vw, 78px);
+  line-height: 0.98;
+}
+
+.team-intro > p {
+  max-width: 540px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.team-profile-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(38px, 5vw, 66px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 2px 78px 2px 2px;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(197, 154, 98, 0.24), transparent 28%),
+    linear-gradient(145deg, var(--forest-soft), var(--forest-deep));
+  box-shadow: 0 34px 78px rgba(15, 44, 38, 0.18);
+  color: var(--cream);
+}
+
+.team-profile-card::after {
+  position: absolute;
+  right: -72px;
+  bottom: -96px;
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgba(243, 236, 223, 0.12);
+  border-radius: 50%;
+  content: "";
+}
+
+.team-monogram {
+  width: 88px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 46px;
+  border: 1px solid rgba(243, 236, 223, 0.44);
+  border-radius: 50%;
+  background: rgba(243, 236, 223, 0.08);
+  color: var(--gold-pale);
+  font-family: var(--serif);
+  font-size: 30px;
+  letter-spacing: -0.04em;
+}
+
+.team-role {
+  color: var(--gold-pale);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.team-profile-card h2 {
+  margin: 6px 0 18px;
+  color: var(--cream);
+  font-size: clamp(44px, 5vw, 64px);
+  line-height: 1;
+}
+
+.team-profile-card p {
+  position: relative;
+  z-index: 1;
+  max-width: 590px;
+  margin: 0;
+  color: rgba(243, 236, 223, 0.8);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.team-focus {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0 34px;
+}
+
+.team-focus span {
+  padding: 7px 10px;
+  border: 1px solid rgba(243, 236, 223, 0.18);
+  color: rgba(243, 236, 223, 0.76);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.team-profile-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(231, 212, 182, 0.56);
+  color: var(--gold-pale);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.team-profile-link:hover {
+  color: var(--white);
 }
 
 .legal-main {
@@ -1394,6 +1470,14 @@ h2 {
     grid-template-columns: 1fr 1fr;
   }
 
+  .team-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-intro {
+    max-width: 700px;
+  }
+
   .footer-action {
     grid-column: 1 / -1;
     flex-direction: row;
@@ -1560,6 +1644,26 @@ h2 {
 
   .site-footer {
     padding-top: 58px;
+  }
+
+  .team-hero {
+    padding: 70px 0 96px;
+  }
+
+  .team-intro h1 {
+    font-size: clamp(46px, 13vw, 62px);
+  }
+
+  .team-profile-card {
+    padding: 34px 26px 40px;
+    border-radius: 2px 58px 2px 2px;
+  }
+
+  .team-monogram {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 34px;
+    font-size: 25px;
   }
 
   .footer-grid {

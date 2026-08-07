@@ -1,4 +1,4 @@
-import { ArrowUpRight, ChevronDown, Menu } from "lucide-react";
+import { ArrowUpRight, Menu } from "lucide-react";
 import Link from "next/link";
 
 export const bookingUrl =
@@ -86,24 +86,7 @@ export function Footer() {
           <nav className="footer-links" aria-label="Footer navigation">
             <Link href="/#how-it-works">How it works</Link>
             <Link href="/#economics">Economics</Link>
-            <details className="footer-team-details">
-              <summary>
-                <span>The team</span>
-                <ChevronDown aria-hidden="true" size={14} />
-              </summary>
-              <div className="footer-team-profile">
-                <strong>Dennis Li, Founder</strong>
-                <p>
-                  Dennis founded Member Legacy to help membership brands create meaningful support
-                  for families. His work spans growth strategy, distribution, partnerships, and
-                  technology across the life insurance value chain.
-                </p>
-                <a href="https://dennisx.com" target="_blank" rel="noreferrer">
-                  Visit dennisx.com
-                  <ArrowUpRight aria-hidden="true" size={14} />
-                </a>
-              </div>
-            </details>
+            <Link href="/team">The team</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
           </nav>
