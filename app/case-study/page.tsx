@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { Footer, Header } from "../_components/chrome";
+import { ScrollToTop } from "../_components/scroll-to-top";
 import { CaseStudyForm } from "./case-study-form";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ const requestBenefits = [
 export default function CaseStudyPage() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <main className="case-study-main" id="top">
         <section className="case-study-hero">

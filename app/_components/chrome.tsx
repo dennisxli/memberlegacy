@@ -29,7 +29,7 @@ const navLinks = [
   { href: "/#economics", label: "Economics" },
   { href: "/#fit", label: "Program fit" },
   { href: "/team#top", label: "The team" },
-  { href: "/case-study", label: "Case study" },
+  { href: "/case-study#top", label: "Case study" },
   { href: "/#faq", label: "FAQ" },
 ];
 
@@ -89,7 +89,7 @@ export function Footer() {
             <Link href="/#how-it-works">How it works</Link>
             <Link href="/#economics">Economics</Link>
             <Link href="/team#top">The team</Link>
-            <Link href="/case-study">Case study</Link>
+            <Link href="/case-study#top">Case study</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
           </nav>
