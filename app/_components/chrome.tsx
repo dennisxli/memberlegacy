@@ -28,6 +28,7 @@ const navLinks = [
   { href: "/#how-it-works", label: "How it works" },
   { href: "/#economics", label: "Economics" },
   { href: "/#fit", label: "Program fit" },
+  { href: "/team", label: "The team" },
   { href: "/#faq", label: "FAQ" },
 ];
 
