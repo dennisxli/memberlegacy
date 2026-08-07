@@ -28,7 +28,8 @@ const navLinks = [
   { href: "/#how-it-works", label: "How it works" },
   { href: "/#economics", label: "Economics" },
   { href: "/#fit", label: "Program fit" },
-  { href: "/team", label: "The team" },
+  { href: "/team#top", label: "The team" },
+  { href: "/case-study", label: "Case study" },
   { href: "/#faq", label: "FAQ" },
 ];
 
@@ -87,7 +88,8 @@ export function Footer() {
           <nav className="footer-links" aria-label="Footer navigation">
             <Link href="/#how-it-works">How it works</Link>
             <Link href="/#economics">Economics</Link>
-            <Link href="/team">The team</Link>
+            <Link href="/team#top">The team</Link>
+            <Link href="/case-study">Case study</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
           </nav>

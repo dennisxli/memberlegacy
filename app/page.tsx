@@ -63,6 +63,24 @@ const steps = [
   },
 ];
 
+const provisionValues = [
+  {
+    number: "01",
+    title: "Optimize member value",
+    body: "Give qualified members a practical protection benefit they can understand, trust, and use without adding another points program.",
+  },
+  {
+    number: "02",
+    title: "Extend loyalty across generations",
+    body: "Support a member's family inside the brand ecosystem and create a natural path for the relationship to continue.",
+  },
+  {
+    number: "03",
+    title: "Execute with discipline",
+    body: "Use targeted eligibility, flexible risk structures, and a staged rollout to manage cost while validating performance.",
+  },
+];
+
 const faqs = [
   {
     question: "Which membership businesses are the best fit?",
@@ -229,6 +247,63 @@ export default function Home() {
                 They are defined for each program before member-facing communication begins.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section className="section provision-section" id="provision">
+          <div className="shell">
+            <div className="provision-intro">
+              <div>
+                <div className="eyebrow">Member Legacy Provision</div>
+                <h2>A small member investment. A benefit families can feel.</h2>
+              </div>
+              <div className="provision-summary">
+                <p>
+                  For a planning cost below $0.30 per eligible member each month, a membership
+                  brand can offer qualified members a company funded income protection benefit at
+                  no cost to the member.
+                </p>
+                <Link className="text-link" href="/case-study">
+                  Request the case study
+                  <ArrowRight aria-hidden="true" size={17} />
+                </Link>
+              </div>
+            </div>
+
+            <div className="provision-mechanics">
+              <div className="provision-promise">
+                <span>Illustrative member promise</span>
+                <h3>Protection built into a relationship members already trust.</h3>
+                <p>
+                  A typical program can provide a beneficiary with a shopping allowance of up to
+                  $1,000 each month for up to 12 months, together with continued membership if the
+                  unexpected happens. Qualified members may also choose additional coverage at
+                  their own expense.
+                </p>
+                <div className="provision-model">
+                  <strong>2% to 3.5%</strong>
+                  <span>modeled retention lift among targeted member cohorts</span>
+                </div>
+              </div>
+
+              <div className="provision-values">
+                {provisionValues.map((value) => (
+                  <article key={value.number}>
+                    <span>{value.number}</span>
+                    <div>
+                      <h3>{value.title}</h3>
+                      <p>{value.body}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <p className="provision-note">
+              Illustrative economics and benefit terms are planning assumptions, not guarantees.
+              Final eligibility, funding, benefit amounts, duration, administration, and regulatory
+              treatment are defined for each program.
+            </p>
           </div>
         </section>
 

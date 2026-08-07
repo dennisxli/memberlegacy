@@ -50,7 +50,7 @@ function formatMemberCount(value: number) {
 export function RoiCalculator() {
   const [memberPosition, setMemberPosition] = useState(() => memberPositionFromValue(100_000));
   const [annualValue, setAnnualValue] = useState(480);
-  const [retentionLift, setRetentionLift] = useState(1.1);
+  const [retentionLift, setRetentionLift] = useState(2.75);
   const [monthlyCost, setMonthlyCost] = useState(0.25);
 
   const members = memberValueFromPosition(memberPosition);
@@ -64,8 +64,9 @@ export function RoiCalculator() {
     : 0;
 
   return (
-    <div className="calculator-grid">
-      <div className="calculator-controls">
+    <>
+      <div className="calculator-grid">
+        <div className="calculator-controls">
         <div className="range-field">
           <div className="range-heading">
             <label htmlFor="members">Active members</label>
@@ -112,22 +113,30 @@ export function RoiCalculator() {
 
         <div className="range-field">
           <div className="range-heading">
-            <label htmlFor="retention-lift">Modeled retention lift</label>
-            <output htmlFor="retention-lift">{retentionLift.toFixed(1)} pts</output>
+            <label htmlFor="retention-lift">
+              Average modeled retention lift
+              <span className="average-badge">Average we see</span>
+            </label>
+            <output htmlFor="retention-lift">{retentionLift.toFixed(2)} pts</output>
           </div>
           <input
             id="retention-lift"
             type="range"
             min="0.1"
-            max="3"
-            step="0.1"
+            max="3.5"
+            step="0.05"
             value={retentionLift}
+            aria-valuetext={`${retentionLift.toFixed(2)} percentage points of modeled retention lift`}
             onChange={(event) => setRetentionLift(Number(event.target.value))}
           />
           <div className="range-limits" aria-hidden="true">
             <span>0.1 pts</span>
-            <span>3.0 pts</span>
+            <span>3.5 pts</span>
           </div>
+          <p className="range-context average-context">
+            2.75 points is the average modeled lift we see across current program scenarios. Adjust
+            it to reflect your own case.
+          </p>
         </div>
 
         <div className="range-field">
@@ -151,7 +160,7 @@ export function RoiCalculator() {
         </div>
       </div>
 
-      <div className="calculator-results" aria-live="polite">
+        <div className="calculator-results" aria-live="polite">
         <div className="results-kicker">Your modeled annual scenario</div>
         <div className="primary-result">
           <span>Net value after program cost</span>
@@ -192,7 +201,34 @@ export function RoiCalculator() {
           This is a transparent planning model, not a performance guarantee. It excludes rollout,
           tax, and other implementation-specific costs.
         </p>
+        </div>
       </div>
-    </div>
+      <section className="strategic-value-panel" aria-labelledby="strategic-value-heading">
+        <div className="strategic-value-heading">
+          <span>Value beyond the formula</span>
+          <h3 id="strategic-value-heading">
+            The financial model captures retention. It does not capture every strategic return.
+          </h3>
+          <p>These benefits strengthen the investment case but are not added to the ROI output.</p>
+        </div>
+        <div className="strategic-value-grid">
+          <article>
+            <span>01</span>
+            <h4>Brand value</h4>
+            <p>Reinforces trust by showing members that the relationship extends to their family.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h4>Marketing value</h4>
+            <p>Creates a credible story for acquisition, upgrades, and member reengagement.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h4>Differentiating value</h4>
+            <p>Offers a meaningful benefit competitors cannot quickly reproduce with points or price.</p>
+          </article>
+        </div>
+      </section>
+    </>
   );
 }

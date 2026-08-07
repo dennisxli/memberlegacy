@@ -16,7 +16,7 @@ export default function TeamPage() {
   return (
     <>
       <Header />
-      <main className="team-main">
+      <main className="team-main" id="top">
         <section className="team-hero">
           <div className="shell team-hero-grid">
             <figure className="team-portrait-frame">
