@@ -1162,25 +1162,80 @@ h2 {
 }
 
 .team-main {
-  background: linear-gradient(180deg, var(--cream) 0, var(--paper) 620px);
+  background: var(--paper);
 }
 
 .team-hero {
-  padding: clamp(86px, 10vw, 132px) 0 clamp(100px, 12vw, 154px);
+  padding: clamp(70px, 8vw, 108px) 0 clamp(90px, 10vw, 132px);
+  background: linear-gradient(180deg, var(--cream), var(--paper));
 }
 
 .team-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(440px, 1.18fr);
+  grid-template-columns: minmax(360px, 0.84fr) minmax(0, 1.16fr);
   align-items: center;
-  gap: clamp(54px, 8vw, 112px);
+  gap: clamp(54px, 8vw, 108px);
+}
+
+.team-portrait-frame {
+  position: relative;
+  margin: 0;
+  padding: 0 30px 32px 0;
+}
+
+.team-portrait-frame::before {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: calc(100% - 44px);
+  height: calc(100% - 52px);
+  border-radius: 2px 86px 2px 2px;
+  background: var(--forest);
+  content: "";
+}
+
+.team-portrait {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px 72px 2px 2px;
+  box-shadow: 0 30px 70px rgba(15, 44, 38, 0.16);
+}
+
+.team-portrait-frame figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  min-width: 210px;
+  display: grid;
+  gap: 1px;
+  padding: 16px 20px;
+  background: var(--cream);
+  box-shadow: 0 14px 32px rgba(15, 44, 38, 0.14);
+}
+
+.team-portrait-frame figcaption strong {
+  color: var(--forest-deep);
+  font-family: var(--serif);
+  font-size: 18px;
+}
+
+.team-portrait-frame figcaption span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .team-intro h1 {
-  max-width: 570px;
+  max-width: 660px;
   margin: 18px 0 26px;
   color: var(--forest-deep);
-  font-size: clamp(52px, 6vw, 78px);
+  font-size: clamp(52px, 6.2vw, 80px);
   line-height: 0.98;
 }
 
@@ -1192,73 +1247,88 @@ h2 {
   line-height: 1.75;
 }
 
-.team-profile-card {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(38px, 5vw, 66px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 2px 78px 2px 2px;
-  background:
-    radial-gradient(circle at 88% 12%, rgba(197, 154, 98, 0.24), transparent 28%),
-    linear-gradient(145deg, var(--forest-soft), var(--forest-deep));
-  box-shadow: 0 34px 78px rgba(15, 44, 38, 0.18);
-  color: var(--cream);
+.team-story-link {
+  margin-top: 34px;
 }
 
-.team-profile-card::after {
-  position: absolute;
-  right: -72px;
-  bottom: -96px;
-  width: 250px;
-  height: 250px;
-  border: 1px solid rgba(243, 236, 223, 0.12);
-  border-radius: 50%;
-  content: "";
+.team-perspective {
+  padding: clamp(96px, 11vw, 150px) 0;
+  background: var(--forest-deep);
 }
 
-.team-monogram {
-  width: 88px;
-  height: 88px;
+.team-story-grid {
   display: grid;
-  place-items: center;
-  margin-bottom: 46px;
-  border: 1px solid rgba(243, 236, 223, 0.44);
-  border-radius: 50%;
-  background: rgba(243, 236, 223, 0.08);
-  color: var(--gold-pale);
-  font-family: var(--serif);
-  font-size: 30px;
-  letter-spacing: -0.04em;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(54px, 9vw, 130px);
 }
 
-.team-role {
-  color: var(--gold-pale);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+.team-story-heading {
+  position: sticky;
+  top: 128px;
+  align-self: start;
 }
 
-.team-profile-card h2 {
-  margin: 6px 0 18px;
+.team-story-heading h2 {
+  max-width: 430px;
+  margin: 18px 0 0;
   color: var(--cream);
-  font-size: clamp(44px, 5vw, 64px);
+  font-size: clamp(44px, 5vw, 66px);
   line-height: 1;
 }
 
-.team-profile-card p {
-  position: relative;
-  z-index: 1;
-  max-width: 590px;
+.team-story-copy {
+  display: grid;
+  gap: 27px;
+}
+
+.team-story-copy p {
   margin: 0;
-  color: rgba(243, 236, 223, 0.8);
+  color: rgba(243, 236, 223, 0.78);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.team-story-copy blockquote {
+  margin: 16px 0;
+  padding: 12px 0 12px 28px;
+  border-left: 2px solid var(--gold);
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.28;
+}
+
+.team-about-section {
+  padding: clamp(90px, 10vw, 138px) 0;
+  background: var(--cream);
+}
+
+.team-about-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(50px, 8vw, 110px);
+  padding: clamp(42px, 6vw, 76px);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: 0 26px 64px rgba(15, 44, 38, 0.09);
+}
+
+.team-about-title h2 {
+  max-width: 480px;
+  margin: 18px 0 0;
+  color: var(--forest-deep);
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1;
+}
+
+.team-about-copy > p {
+  margin: 0 0 20px;
+  color: var(--muted);
   font-size: 15px;
   line-height: 1.8;
 }
 
 .team-focus {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -1267,28 +1337,26 @@ h2 {
 
 .team-focus span {
   padding: 7px 10px;
-  border: 1px solid rgba(243, 236, 223, 0.18);
-  color: rgba(243, 236, 223, 0.76);
+  border: 1px solid var(--line);
+  color: var(--forest-soft);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.05em;
 }
 
 .team-profile-link {
-  position: relative;
-  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding-bottom: 3px;
-  border-bottom: 1px solid rgba(231, 212, 182, 0.56);
-  color: var(--gold-pale);
+  border-bottom: 1px solid rgba(23, 58, 50, 0.34);
+  color: var(--forest);
   font-size: 13px;
   font-weight: 750;
 }
 
 .team-profile-link:hover {
-  color: var(--white);
+  color: var(--gold);
 }
 
 .legal-main {
@@ -1478,6 +1546,19 @@ h2 {
     max-width: 700px;
   }
 
+  .team-portrait-frame {
+    max-width: 620px;
+  }
+
+  .team-story-grid,
+  .team-about-card {
+    grid-template-columns: 1fr;
+  }
+
+  .team-story-heading {
+    position: static;
+  }
+
   .footer-action {
     grid-column: 1 / -1;
     flex-direction: row;
@@ -1654,16 +1735,22 @@ h2 {
     font-size: clamp(46px, 13vw, 62px);
   }
 
-  .team-profile-card {
-    padding: 34px 26px 40px;
-    border-radius: 2px 58px 2px 2px;
+  .team-portrait-frame {
+    padding: 0 18px 22px 0;
   }
 
-  .team-monogram {
-    width: 72px;
-    height: 72px;
-    margin-bottom: 34px;
-    font-size: 25px;
+  .team-portrait-frame figcaption {
+    min-width: 190px;
+    padding: 13px 16px;
+  }
+
+  .team-perspective,
+  .team-about-section {
+    padding: 86px 0;
+  }
+
+  .team-about-card {
+    padding: 34px 24px;
   }
 
   .footer-grid {
