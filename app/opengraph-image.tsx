@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Member Legacy: Turn membership into something families remember";
+export const alt = "Member Legacy: Product-connected family protection";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -39,11 +39,11 @@ export default function OpenGraphImage() {
           <div style={{ display: "flex" }}>Member Legacy</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", maxWidth: 990 }}>
-          <div style={{ fontSize: 76, lineHeight: 1.02, letterSpacing: -3 }}>
-            Turn membership into something families remember.
+          <div style={{ fontSize: 65, lineHeight: 1.03, letterSpacing: -2.5 }}>
+            Turn what customers rely on today into protection their families can rely on tomorrow.
           </div>
           <div style={{ fontSize: 25, marginTop: 34, color: "#c9d7cc" }}>
-            A family continuity benefit for membership brands.
+            Product-connected family protection. Continuity by design.
           </div>
         </div>
       </div>

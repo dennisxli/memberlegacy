@@ -5,16 +5,16 @@ import { ScrollToTop } from "../_components/scroll-to-top";
 import { DesignPilotForm } from "./design-pilot-form";
 
 export const metadata: Metadata = {
-  title: "Design a Pilot",
+  title: "Explore a Program",
   description:
-    "Explore a controlled Member Legacy pilot for a financial membership, premium account tier, or recurring member platform.",
+    "Explore a partner-connected family protection program designed around your core product, customer relationship, economics, and operating model.",
   alternates: { canonical: "/design-a-pilot" },
 };
 
 const workingSessionOutcomes = [
-  "A defined cohort and business objective",
-  "A first view of the cost ceiling and benefit structure",
-  "The operating and measurement questions required for a pilot",
+  "A clear product-to-protection concept",
+  "A first view of the target population, funding structure, and cost ceiling",
+  "The operating, compliance, and measurement questions required for a controlled pilot",
 ];
 
 export default function DesignPilotPage() {
@@ -26,12 +26,13 @@ export default function DesignPilotPage() {
         <section className="case-study-hero">
           <div className="shell case-study-grid">
             <div className="case-study-intro">
-              <div className="eyebrow">Design a pilot</div>
-              <h1>Start with one decision worth testing.</h1>
+              <div className="eyebrow">Explore a program</div>
+              <h1>Start with the value you want families to continue.</h1>
               <p>
-                Share the member cohort and business objective you are evaluating. We will respond
-                within 48 hours to frame a focused working session around the economics, benefit
-                design, operating model, and measurement plan.
+                Share the product or service your customers rely on, the customer group you are
+                considering, and the business objective you want to test. We will use that context
+                to frame a focused working session around the protected outcome, program structure,
+                economics, operating model, and measurement plan.
               </p>
               <ul>
                 {workingSessionOutcomes.map((outcome) => (

@@ -15,7 +15,7 @@ export default function TermsPage() {
         <article className="shell legal-article">
           <div className="eyebrow">Terms</div>
           <h1>Website terms</h1>
-          <p className="legal-updated">Last updated: August 11, 2026</p>
+          <p className="legal-updated">Last updated: August 12, 2026</p>
 
           <p>
             These terms govern use of memberlegacy.com. By using the site, you agree to use it lawfully
@@ -31,7 +31,7 @@ export default function TermsPage() {
           <h2>Program descriptions</h2>
           <p>
             Descriptions of Member Legacy are illustrative. Final eligibility, funding, benefit
-            amount and duration, administration, member experience, regulatory treatment, and other
+            amount and duration, administration, customer experience, regulatory treatment, and other
             terms are established in a separate written agreement for each program.
           </p>
 

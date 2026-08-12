@@ -15,19 +15,20 @@ export default function PrivacyPage() {
         <article className="shell legal-article">
           <div className="eyebrow">Privacy</div>
           <h1>Privacy notice</h1>
-          <p className="legal-updated">Last updated: August 11, 2026</p>
+          <p className="legal-updated">Last updated: August 12, 2026</p>
 
           <p>
             This notice describes how information may be handled when you visit memberlegacy.com or
-            submit a pilot inquiry to Member Legacy.
+            submit a program inquiry to Member Legacy.
           </p>
 
           <h2>Information you provide</h2>
           <p>
-            The Design a Pilot form collects your name, work email, company, primary use case, and
-            any optional business objective or question you choose to share. Member Legacy uses
-            this information to evaluate and respond to your request. The site does not operate
-            public user accounts.
+            The Explore a Program form collects your name, work email, company, the product or
+            service you are evaluating, and your business objective. You may also share a company
+            website, target customer group, desired family outcome, and approximate eligible
+            population. Member Legacy uses this information to evaluate and respond to your
+            request. The site does not operate public user accounts.
           </p>
 
           <h2>Technical information</h2>
@@ -47,7 +48,7 @@ export default function PrivacyPage() {
           <h2>Sharing and retention</h2>
           <p>
             Information is used for legitimate business communication, site operation, and security.
-            Pilot inquiry data is transmitted through website infrastructure and recorded in a
+            Program inquiry data is transmitted through website infrastructure and recorded in a
             restricted Google Sheet, with an email notification sent to Member Legacy. Information
             may be processed by service providers supporting those purposes and retained only as
             reasonably necessary or as required by law.

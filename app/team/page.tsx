@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const focusAreas = [
-  "Actuarial pricing",
+  "Actuarial economics",
   "Product strategy",
   "Embedded distribution",
-  "Credit unions",
+  "Program architecture",
 ];
 
 export default function TeamPage() {
@@ -79,8 +79,8 @@ export default function TeamPage() {
                 create sustainable value for every organization involved in delivering it.
               </p>
               <blockquote>
-                Better alignment leads to better outcomes for consumers, distribution partners,
-                membership organizations, and carriers.
+                Better alignment leads to better outcomes for customers, distribution partners,
+                sponsoring organizations, and carriers.
               </blockquote>
               <p>
                 When those interests move together, consumers gain access to relevant,
@@ -89,17 +89,14 @@ export default function TeamPage() {
                 channels.
               </p>
               <p>
-                Dennis has developed channels with financial institutions, credit unions, and other
-                membership organizations. He saw that these platforms already hold something the
-                traditional insurance process often has to build from scratch: an established
-                relationship with a defined community.
+                Dennis believes the best embedded insurance programs do not begin with an insurance
+                product. They begin with understanding what customers already trust a partner to
+                provide. The protection should then be designed as a natural extension of that value.
               </p>
               <p>
-                This conviction led Dennis to found Member Legacy. The company is developing an
-                embedded family continuity model that places a sponsor funded benefit within an
-                existing member relationship. For membership and account platforms, it offers a way
-                to make the relationship more meaningful without beginning with another product
-                sales journey.
+                This conviction led him to found Member Legacy. The company helps organizations
+                translate their core customer promise into a family protection program, aligning
+                benefit design, insurance economics, operations, and distribution around a shared outcome.
               </p>
               <p>
                 For Dennis, Member Legacy is more than a new distribution strategy. It is an
@@ -120,13 +117,14 @@ export default function TeamPage() {
               <p>
                 Dennis Li, FSA, is the founder of Member Legacy and an experienced insurance
                 executive. His work across actuarial pricing, product strategy, and channel
-                development includes building programs with credit unions and other member based
-                organizations across the life and supplemental health industries.
+                development includes building programs across financial institutions, membership
+                businesses, and other trusted distribution relationships in the life and
+                supplemental health industries.
               </p>
               <p>
                 His vision is to prove that insurance distribution can work differently. When
                 shared value is part of the design from the beginning, consumers receive accessible
-                protection, membership organizations deliver more value to their communities, and
+                protection, partner organizations deliver more value to their customers, and
                 carriers grow through relevance, trust, and long term alignment.
               </p>
               <div className="team-focus" aria-label="Areas of experience">

@@ -5,25 +5,34 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://memberlegacy.com"),
   title: {
-    default: "Member Legacy | A Benefit Families Remember",
+    default: "Member Legacy | Product-Connected Family Protection",
     template: "%s | Member Legacy",
   },
   description:
-    "Member Legacy helps membership businesses extend a trusted member relationship to the family through a sponsor funded continuity benefit.",
+    "Member Legacy designs family protection programs around the products and services customers already value, aligning benefit design, insurance economics, operations, and measurement.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Member Legacy",
-    title: "Turn membership into something families remember.",
+    title: "Turn what customers rely on today into protection their families can rely on tomorrow.",
     description:
-      "A family continuity benefit designed around your membership, your members, and your economics.",
+      "Product-connected family protection designed around your customer promise, economics, and operating model.",
     url: "/",
+    images: [
+      {
+        url: "/og.png",
+        width: 1731,
+        height: 909,
+        alt: "Member Legacy product-connected family protection",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Turn membership into something families remember.",
+    title: "Turn what customers rely on today into protection their families can rely on tomorrow.",
     description:
-      "A family continuity benefit designed around your membership, your members, and your economics.",
+      "Product-connected family protection designed around your customer promise, economics, and operating model.",
+    images: ["/og.png"],
   },
 };
 
@@ -36,7 +45,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   );

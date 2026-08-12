@@ -1,13 +1,13 @@
 const CONFIG = Object.freeze({
   spreadsheetId: "1sapJp0DSWR4LW2B9xCUtCSxYwQ8kMgINC5d0R5iAzAg",
-  sheetName: "Pilot Inquiries",
+  sheetName: "Program Inquiries",
   recipientEmail: "dennis@memberlegacy.com",
 });
 
 function doPost(event) {
   try {
     const payload = JSON.parse((event.postData && event.postData.contents) || "{}");
-    const required = ["name", "workEmail", "company", "primaryUseCase"];
+    const required = ["name", "workEmail", "company", "productService", "businessObjective"];
 
     if (required.some((field) => !String(payload[field] || "").trim())) {
       return jsonResponse({ ok: false, error: "Missing required fields" });
@@ -17,8 +17,12 @@ function doPost(event) {
       name: safeCell(payload.name),
       workEmail: safeCell(payload.workEmail),
       company: safeCell(payload.company),
-      primaryUseCase: safeCell(payload.primaryUseCase),
+      companyWebsite: safeCell(payload.companyWebsite),
+      productService: safeCell(payload.productService),
+      targetCustomerGroup: safeCell(payload.targetCustomerGroup),
       businessObjective: safeCell(payload.businessObjective),
+      familyOutcome: safeCell(payload.familyOutcome),
+      eligiblePopulation: safeCell(payload.eligiblePopulation),
       sourceUrl: safeCell(payload.sourceUrl || "https://memberlegacy.com/design-a-pilot"),
     };
 
@@ -35,26 +39,30 @@ function doPost(event) {
     try {
       const nextRow = sheet.getLastRow() + 1;
       sheet
-        .getRange(nextRow, 1, 1, 8)
+        .getRange(nextRow, 1, 1, 12)
         .setValues([[
           new Date(),
           lead.name,
           lead.workEmail,
           lead.company,
-          lead.primaryUseCase,
+          lead.companyWebsite,
+          lead.productService,
+          lead.targetCustomerGroup,
           lead.businessObjective,
+          lead.familyOutcome,
+          lead.eligiblePopulation,
           lead.sourceUrl,
           "New",
         ]]);
       sheet.getRange(nextRow, 1).setNumberFormat("yyyy-mm-dd hh:mm");
       sheet
-        .getRange(nextRow, 8)
+        .getRange(nextRow, 12)
         .setDataValidation(
           SpreadsheetApp.newDataValidation()
             .requireValueInList(["New", "Contacted", "Qualified", "Closed", "Not a fit"], true)
             .build(),
         );
-      sheet.getRange(nextRow, 6).setWrap(true);
+      sheet.getRange(nextRow, 9).setWrap(true);
     } finally {
       lock.releaseLock();
     }
@@ -62,14 +70,18 @@ function doPost(event) {
     MailApp.sendEmail({
       to: CONFIG.recipientEmail,
       replyTo: lead.workEmail,
-      subject: `New Member Legacy pilot inquiry from ${lead.name}`,
+      subject: `New Member Legacy program inquiry from ${lead.name}`,
       htmlBody: [
-        "<h2>New pilot inquiry</h2>",
+        "<h2>New program inquiry</h2>",
         `<p><strong>Name:</strong> ${escapeHtml(lead.name)}</p>`,
         `<p><strong>Work email:</strong> ${escapeHtml(lead.workEmail)}</p>`,
         `<p><strong>Company:</strong> ${escapeHtml(lead.company)}</p>`,
-        `<p><strong>Primary use case:</strong> ${escapeHtml(lead.primaryUseCase)}</p>`,
-        `<p><strong>Business objective or question:</strong><br>${escapeHtml(lead.businessObjective || "Not provided").replace(/\n/g, "<br>")}</p>`,
+        `<p><strong>Company website:</strong> ${escapeHtml(lead.companyWebsite || "Not provided")}</p>`,
+        `<p><strong>Product or service:</strong> ${escapeHtml(lead.productService)}</p>`,
+        `<p><strong>Target customer group:</strong> ${escapeHtml(lead.targetCustomerGroup || "Not provided")}</p>`,
+        `<p><strong>Business objective:</strong> ${escapeHtml(lead.businessObjective)}</p>`,
+        `<p><strong>Desired family outcome:</strong><br>${escapeHtml(lead.familyOutcome || "Not provided").replace(/\n/g, "<br>")}</p>`,
+        `<p><strong>Eligible population:</strong> ${escapeHtml(lead.eligiblePopulation || "Not provided")}</p>`,
         `<p><strong>Source:</strong> ${escapeHtml(lead.sourceUrl)}</p>`,
       ].join(""),
     });

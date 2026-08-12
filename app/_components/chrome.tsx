@@ -27,9 +27,9 @@ export function Brand() {
 }
 
 const navLinks = [
-  { href: "/#challenge", label: "Why it matters" },
-  { href: "/#how-it-works", label: "How it works" },
-  { href: "/#economics", label: "Economics" },
+  { href: "/#why-it-matters", label: "Why it matters" },
+  { href: "/#our-approach", label: "Our approach" },
+  { href: "/#business-value", label: "Business value" },
   { href: "/team#top", label: "Founder" },
 ];
 
@@ -49,7 +49,7 @@ export function Header() {
           className="button button-small header-cta"
           href="/design-a-pilot#top"
         >
-          Design a pilot
+          Explore a program
           <ArrowRight aria-hidden="true" size={16} strokeWidth={1.8} />
         </Link>
         <details className="mobile-nav">
@@ -62,7 +62,7 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/design-a-pilot#top">Design a pilot</Link>
+            <Link href="/design-a-pilot#top">Explore a program</Link>
           </nav>
         </details>
       </div>
@@ -77,16 +77,17 @@ export function Footer() {
         <div className="footer-brand">
           <Brand />
           <p className="footer-note">
-            A lasting member benefit, built around family and relationships people value.
+            Product-connected family protection, built around relationships customers already value.
           </p>
         </div>
         <div className="footer-navigation">
           <nav className="footer-links" aria-label="Footer navigation">
-            <Link href="/#challenge">Why it matters</Link>
-            <Link href="/#how-it-works">How it works</Link>
+            <Link href="/#why-it-matters">Why it matters</Link>
+            <Link href="/#our-approach">Our approach</Link>
+            <Link href="/#business-value">Business value</Link>
             <Link href="/#economics">Economics</Link>
             <Link href="/team#top">Founder</Link>
-            <Link href="/design-a-pilot#top">Design a pilot</Link>
+            <Link href="/design-a-pilot#top">Explore a program</Link>
             <Link href="/#faq">FAQ</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>

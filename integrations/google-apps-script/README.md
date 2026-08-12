@@ -1,6 +1,10 @@
-# Pilot inquiry connection
+# Program inquiry connection
 
-The website sends pilot inquiries to a Google Apps Script web app. The script records each request in the `Pilot Inquiries` worksheet and emails `dennis@memberlegacy.com`.
+The website sends program inquiries to a Google Apps Script web app. The script records each request in the `Program Inquiries` worksheet and emails `dennis@memberlegacy.com`.
+
+The worksheet header row must contain these columns in order:
+
+`Submitted At`, `Name`, `Work Email`, `Company`, `Company Website`, `Product or Service`, `Target Customer Group`, `Business Objective`, `Family Outcome`, `Eligible Population`, `Source URL`, `Status`
 
 1. Open the Google Sheet and select **Extensions**, then **Apps Script**.
 2. Replace the default script with `Code.gs` from this folder.
