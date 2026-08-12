@@ -1,13 +1,13 @@
 const CONFIG = Object.freeze({
   spreadsheetId: "1sapJp0DSWR4LW2B9xCUtCSxYwQ8kMgINC5d0R5iAzAg",
-  sheetName: "Case Study Leads",
+  sheetName: "Pilot Inquiries",
   recipientEmail: "dennis@memberlegacy.com",
 });
 
 function doPost(event) {
   try {
     const payload = JSON.parse((event.postData && event.postData.contents) || "{}");
-    const required = ["name", "title", "companyEmail", "phone", "interest"];
+    const required = ["name", "workEmail", "company", "primaryUseCase"];
 
     if (required.some((field) => !String(payload[field] || "").trim())) {
       return jsonResponse({ ok: false, error: "Missing required fields" });
@@ -15,11 +15,11 @@ function doPost(event) {
 
     const lead = {
       name: safeCell(payload.name),
-      title: safeCell(payload.title),
-      companyEmail: safeCell(payload.companyEmail),
-      phone: safeCell(payload.phone),
-      interest: safeCell(payload.interest),
-      sourceUrl: safeCell(payload.sourceUrl || "https://memberlegacy.com/case-study"),
+      workEmail: safeCell(payload.workEmail),
+      company: safeCell(payload.company),
+      primaryUseCase: safeCell(payload.primaryUseCase),
+      businessObjective: safeCell(payload.businessObjective),
+      sourceUrl: safeCell(payload.sourceUrl || "https://memberlegacy.com/design-a-pilot"),
     };
 
     const spreadsheet = SpreadsheetApp.openById(CONFIG.spreadsheetId);
@@ -39,10 +39,10 @@ function doPost(event) {
         .setValues([[
           new Date(),
           lead.name,
-          lead.title,
-          lead.companyEmail,
-          lead.phone,
-          lead.interest,
+          lead.workEmail,
+          lead.company,
+          lead.primaryUseCase,
+          lead.businessObjective,
           lead.sourceUrl,
           "New",
         ]]);
@@ -61,15 +61,15 @@ function doPost(event) {
 
     MailApp.sendEmail({
       to: CONFIG.recipientEmail,
-      replyTo: lead.companyEmail,
-      subject: `New Member Legacy case study request from ${lead.name}`,
+      replyTo: lead.workEmail,
+      subject: `New Member Legacy pilot inquiry from ${lead.name}`,
       htmlBody: [
-        "<h2>New case study request</h2>",
+        "<h2>New pilot inquiry</h2>",
         `<p><strong>Name:</strong> ${escapeHtml(lead.name)}</p>`,
-        `<p><strong>Title:</strong> ${escapeHtml(lead.title)}</p>`,
-        `<p><strong>Company email:</strong> ${escapeHtml(lead.companyEmail)}</p>`,
-        `<p><strong>Phone:</strong> ${escapeHtml(lead.phone)}</p>`,
-        `<p><strong>Why interested:</strong><br>${escapeHtml(lead.interest).replace(/\n/g, "<br>")}</p>`,
+        `<p><strong>Work email:</strong> ${escapeHtml(lead.workEmail)}</p>`,
+        `<p><strong>Company:</strong> ${escapeHtml(lead.company)}</p>`,
+        `<p><strong>Primary use case:</strong> ${escapeHtml(lead.primaryUseCase)}</p>`,
+        `<p><strong>Business objective or question:</strong><br>${escapeHtml(lead.businessObjective || "Not provided").replace(/\n/g, "<br>")}</p>`,
         `<p><strong>Source:</strong> ${escapeHtml(lead.sourceUrl)}</p>`,
       ].join(""),
     });

@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { useState, type FormEvent } from "react";
 
 type SubmissionState = "idle" | "submitting" | "success" | "error";
 
-export function CaseStudyForm() {
+export function DesignPilotForm() {
   const [submissionState, setSubmissionState] = useState<SubmissionState>("idle");
   const [message, setMessage] = useState("");
 
@@ -20,7 +20,7 @@ export function CaseStudyForm() {
     const payload = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch("/api/case-study", {
+      const response = await fetch("/api/pilot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -33,7 +33,7 @@ export function CaseStudyForm() {
 
       form.reset();
       setSubmissionState("success");
-      setMessage("Thank you. Someone from Member Legacy will reach out within 48 hours.");
+      setMessage("Thank you. Someone from Member Legacy will respond within 48 hours.");
     } catch (error) {
       setSubmissionState("error");
       setMessage(
@@ -45,43 +45,57 @@ export function CaseStudyForm() {
   }
 
   return (
-    <form className="case-study-form" onSubmit={handleSubmit}>
+    <form className="case-study-form pilot-form" onSubmit={handleSubmit}>
       <div className="form-heading">
-        <span>Request access</span>
-        <h2>Tell us about your priorities.</h2>
-        <p>All fields are required. We will respond within 48 hours.</p>
+        <span>Pilot inquiry</span>
+        <h2>Tell us what you want to evaluate.</h2>
+        <p>Fields marked with an asterisk are required. We respond within 48 hours.</p>
       </div>
+
+      <label>
+        <span className="field-label">Name <b className="required-mark">*</b></span>
+        <input name="name" type="text" autoComplete="name" maxLength={100} required />
+      </label>
 
       <div className="form-field-row">
         <label>
-          Name
-          <input name="name" type="text" autoComplete="name" maxLength={100} required />
+          <span className="field-label">Work email <b className="required-mark">*</b></span>
+          <input name="workEmail" type="email" autoComplete="email" maxLength={160} required />
         </label>
         <label>
-          Title
+          <span className="field-label">Company <b className="required-mark">*</b></span>
           <input
-            name="title"
+            name="company"
             type="text"
-            autoComplete="organization-title"
-            maxLength={120}
+            autoComplete="organization"
+            maxLength={160}
             required
           />
         </label>
       </div>
 
       <label>
-        Company email
-        <input name="companyEmail" type="email" autoComplete="email" maxLength={160} required />
+        <span className="field-label">Primary use case <b className="required-mark">*</b></span>
+        <select name="primaryUseCase" defaultValue="" required>
+          <option value="" disabled>Select one</option>
+          <option value="Financial membership or paid tier">
+            Financial membership or paid tier
+          </option>
+          <option value="Commerce membership">Commerce membership</option>
+          <option value="Other recurring member platform">Other recurring member platform</option>
+        </select>
       </label>
 
       <label>
-        Phone number
-        <input name="phone" type="tel" autoComplete="tel" maxLength={40} required />
-      </label>
-
-      <label>
-        Why are you interested?
-        <textarea name="interest" rows={5} minLength={20} maxLength={1500} required />
+        <span className="field-label">
+          Business objective or question <b className="optional-mark">Optional</b>
+        </span>
+        <textarea
+          name="businessObjective"
+          rows={5}
+          maxLength={2000}
+          placeholder="What cohort, membership objective, or economic question are you evaluating?"
+        />
       </label>
 
       <label className="form-honeypot" aria-hidden="true">
@@ -89,8 +103,12 @@ export function CaseStudyForm() {
         <input name="website" type="text" tabIndex={-1} autoComplete="off" />
       </label>
 
-      <button className="button case-study-submit" type="submit" disabled={submissionState === "submitting"}>
-        {submissionState === "submitting" ? "Sending request" : "Request a case study"}
+      <button
+        className="button case-study-submit"
+        type="submit"
+        disabled={submissionState === "submitting"}
+      >
+        {submissionState === "submitting" ? "Sending request" : "Request a pilot working session"}
         <ArrowRight aria-hidden="true" size={17} />
       </button>
 

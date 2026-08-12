@@ -5,13 +5,15 @@ import {
   ArrowDown,
   ArrowRight,
   Check,
+  CircleDollarSign,
   HeartHandshake,
-  LineChart,
   Settings2,
   ShieldCheck,
+  Sparkles,
+  UsersRound,
 } from "lucide-react";
-import { BrandMark, Footer, Header, bookingUrl } from "./_components/chrome";
-import { RoiCalculator } from "./_components/roi-calculator";
+import { BrandMark, Footer, Header } from "./_components/chrome";
+import { ThresholdCalculator } from "./_components/roi-calculator";
 import heroImage from "../public/hero-family.webp";
 
 export const metadata: Metadata = {
@@ -24,88 +26,146 @@ const organizationJsonLd = {
   name: "Member Legacy",
   url: "https://memberlegacy.com",
   description:
-    "A member-exclusive family support benefit designed to deepen loyalty and create measurable value for membership brands.",
+    "Member Legacy helps membership businesses create a sponsor funded family continuity benefit around relationships members already value.",
 };
 
-const benefits = [
+const challenges = [
   {
-    icon: HeartHandshake,
-    title: "Loyalty with emotional weight",
-    body: "Move beyond points and discounts with support members can genuinely value. It gives families something worth remembering.",
+    icon: Sparkles,
+    title: "Benefits feel interchangeable",
+    body: "Points, discounts, and access can add value, but competitors can often answer with more of the same.",
   },
   {
-    icon: LineChart,
-    title: "Economics you can interrogate",
-    body: "Model program cost against your own member value and retention assumptions before making a decision.",
+    icon: CircleDollarSign,
+    title: "Value is judged at renewal",
+    body: "When a membership is measured mainly by savings, every renewal becomes another price comparison.",
+  },
+  {
+    icon: UsersRound,
+    title: "The promise stops at the member",
+    body: "Most programs serve the individual well in everyday life but do little to extend that relationship to the family.",
+  },
+];
+
+const solutionPrinciples = [
+  {
+    icon: HeartHandshake,
+    title: "Meaningful by design",
+    body: "Support is built around a real family need, not another reason to spend.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Part of the membership",
+    body: "The core benefit is funded by the sponsor for an eligible group, not introduced as a separate sales journey.",
   },
   {
     icon: Settings2,
-    title: "Designed for low operational drag",
-    body: "Define eligibility, activation, and redemption workflows up front so the program fits the way your team works.",
+    title: "Structured for delivery",
+    body: "Eligibility, benefit terms, partners, administration, and the beneficiary experience are defined before launch.",
+  },
+];
+
+const businessValues = [
+  {
+    number: "01",
+    title: "A reason to choose you",
+    body: "Give members a benefit with human meaning that is harder to reduce to a price comparison.",
+  },
+  {
+    number: "02",
+    title: "A stronger membership story",
+    body: "Help product and marketing teams explain what the relationship stands for beyond everyday transactions.",
+  },
+  {
+    number: "03",
+    title: "A benefit families remember",
+    body: "Extend the value of the membership to the people a member cares about most, under clear program terms.",
+  },
+  {
+    number: "04",
+    title: "A case finance can test",
+    body: "Design against a cost ceiling and evaluate the threshold using your own membership economics.",
   },
 ];
 
 const steps = [
   {
     number: "01",
-    title: "Design the benefit",
-    body: "Set eligibility, monthly allowance, duration, and the places value can be redeemed inside your ecosystem.",
+    title: "Choose the member group",
+    body: "Identify the cohort that matters and the membership objective the program should support.",
   },
   {
     number: "02",
-    title: "Offer it exclusively",
-    body: "Introduce Member Legacy as a clear membership benefit, not a promotion available to everyone.",
+    title: "Shape the promise",
+    body: "Design the benefit around member relevance, sponsor economics, and the requirements of supporting partners.",
   },
   {
     number: "03",
-    title: "Support the family",
-    body: "When the benefit is activated, the family receives the agreed monthly allowance to use with your brand.",
+    title: "Build the experience",
+    body: "Set clear communication, eligibility, administration, and a thoughtful process for the family.",
+  },
+  {
+    number: "04",
+    title: "Run a measured pilot",
+    body: "Launch to a defined population and evaluate the operating model and agreed business outcomes.",
   },
 ];
 
-const provisionValues = [
+const relationshipTypes = [
   {
-    number: "01",
-    title: "Optimize member value",
-    body: "Give qualified members a practical protection benefit they can understand, trust, and use without adding another points program.",
+    title: "Paid memberships",
+    body: "Add a more meaningful reason to join, upgrade, or continue a premium membership relationship.",
   },
   {
-    number: "02",
-    title: "Extend loyalty across generations",
-    body: "Support a member's family inside the brand ecosystem and create a natural path for the relationship to continue.",
+    title: "Premium account tiers",
+    body: "Strengthen the value of an account tier with a benefit built around continuity for the family.",
   },
   {
-    number: "03",
-    title: "Execute with discipline",
-    body: "Use targeted eligibility, flexible risk structures, and a staged rollout to manage cost while validating performance.",
+    title: "Member communities",
+    body: "Extend the purpose of an association or member organization through a benefit that reflects its mission.",
   },
 ];
 
 const faqs = [
   {
-    question: "Which membership businesses are the best fit?",
+    question: "What is Member Legacy?",
     answer:
-      "Programs with meaningful member relationships, recurring revenue, and a clear redemption ecosystem are the strongest starting point. The working session tests fit before anyone discusses implementation.",
+      "Member Legacy is a family continuity benefit for recurring membership and account relationships. It brings benefit design, insurance partners, administration, member experience, and measurement into one sponsor led program.",
   },
   {
-    question: "How much does the program cost?",
+    question: "Which membership businesses are the strongest fit?",
     answer:
-      "The current planning range runs from $0.05 to $0.50 per member per month. Actual pricing depends on the benefit design, member population, eligibility, duration, administration, and other agreed program terms.",
+      "The strongest starting points have a defined member population, recurring economics, an established relationship, and a clear reason to make the membership more meaningful or differentiated.",
   },
   {
-    question: "Is a retention lift guaranteed?",
+    question: "What does sponsor funded mean?",
     answer:
-      "No. The calculator is a scenario model, not evidence of guaranteed performance. A credible business case should use your economics, conservative assumptions, and a measurement plan established before launch.",
+      "The sponsoring organization funds the core benefit for an eligible group. Members do not need to begin with an individual purchase decision for that core benefit.",
   },
   {
-    question: "How much work lands on our team?",
+    question: "What does the family receive?",
     answer:
-      "The program is designed to minimize operational lift, but 'zero lift' would be an unserious promise. Your team will still align on eligibility, member communication, escalation paths, reporting, and brand standards.",
+      "The final benefit depends on the sponsor, market, insurance structure, and operating design. It may be a defined cash benefit or another approved form of support. Member language is written only after those terms are established.",
   },
   {
-    question: "Is Member Legacy an insurance product?",
+    question: "How much does a program cost?",
     answer:
-      "The website does not make that classification. Funding, eligibility, administration, and regulatory treatment depend on the final program design and jurisdiction. The benefit should be described exactly as implemented, with appropriate legal review before launch.",
+      "There is no universal published price. Cost depends on the eligible population, covered population, benefit design, duration, insurance structure, administration, and pilot scope. We design against a sponsor approved cost ceiling.",
+  },
+  {
+    question: "Does Member Legacy guarantee retention or ROI?",
+    answer:
+      "No. Outcomes depend on the program and population. The business case starts with transparent break even math and a controlled measurement plan, not a promised lift.",
+  },
+  {
+    question: "Is this an insurance sales funnel?",
+    answer:
+      "No. The initial program is designed as a sponsor funded membership benefit. Any future member paid offering would require a separate strategy, experience, and compliance review.",
+  },
+  {
+    question: "How does a pilot begin?",
+    answer:
+      "A working session identifies the member group, business objective, cost ceiling, benefit concept, operating owners, and measurement approach. From there, Member Legacy can frame a controlled pilot for sponsor and partner review.",
   },
 ];
 
@@ -123,37 +183,29 @@ export default function Home() {
         <section className="hero">
           <div className="shell hero-grid">
             <div className="hero-copy">
-              <div className="eyebrow">
-                A family continuity benefit for membership brands
-              </div>
+              <div className="eyebrow">A family continuity benefit for membership brands</div>
               <h1>
                 Turn membership into something <span>families remember.</span>
               </h1>
-              <p className="hero-lede">
-                Member Legacy is designed so an eligible member&apos;s family can receive a defined
-                monthly allowance within the sponsoring brand if the unexpected happens. It
-                combines a deeply human promise with commercial discipline and a practical
-                operating model.
+              <p className="hero-lede hero-lede-short">
+                Your members already trust you with part of everyday life. Member Legacy helps you
+                extend that relationship to their families when it matters most, through a benefit
+                shaped around your membership and your economics.
               </p>
               <div className="hero-actions">
-                <Link className="button" href="#economics">
-                  Model your economics
-                  <ArrowDown aria-hidden="true" size={18} strokeWidth={1.8} />
+                <Link className="button" href="/design-a-pilot#top">
+                  Design a pilot
+                  <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
                 </Link>
-                <a
-                  className="text-link"
-                  href={bookingUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Book a 30-minute conversation
-                  <ArrowRight aria-hidden="true" size={17} />
-                </a>
+                <Link className="text-link" href="#challenge">
+                  See why it matters
+                  <ArrowDown aria-hidden="true" size={17} />
+                </Link>
               </div>
               <div className="hero-principles" aria-label="Program principles">
-                <span><Check aria-hidden="true" size={15} /> Member-exclusive</span>
-                <span><Check aria-hidden="true" size={15} /> Brand-redeemable</span>
-                <span><Check aria-hidden="true" size={15} /> Economics-first</span>
+                <span><Check aria-hidden="true" size={15} /> Sponsor funded</span>
+                <span><Check aria-hidden="true" size={15} /> Built for your members</span>
+                <span><Check aria-hidden="true" size={15} /> Designed to measure</span>
               </div>
             </div>
 
@@ -177,44 +229,102 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="signal-strip" aria-label="Program highlights">
+        <section className="signal-strip" aria-label="Program design principles">
           <div className="shell signal-grid">
             <div>
-              <strong>$0.05 to $0.50</strong>
-              <span>current planning range per active member each month</span>
+              <strong>More than a reward</strong>
+              <span>Built around a moment that matters</span>
             </div>
             <div>
-              <strong>Brand-contained</strong>
-              <span>allowance designed for your ecosystem</span>
+              <strong>Part of your promise</strong>
+              <span>Designed for a membership members already trust</span>
             </div>
             <div>
-              <strong>Measurable</strong>
-              <span>economics and retention tested explicitly</span>
+              <strong>Grounded in economics</strong>
+              <span>Structured to test before scaling</span>
             </div>
           </div>
         </section>
 
-        <section className="section benefit-section">
+        <section className="section benefit-section" id="challenge">
           <div className="shell">
             <div className="section-heading split-heading">
               <div>
-                <div className="eyebrow">The strategic case</div>
-                <h2>Retention is emotional before it is mathematical.</h2>
+                <div className="eyebrow">The membership challenge</div>
+                <h2>Useful benefits do not always create a lasting bond.</h2>
               </div>
               <p>
-                Most loyalty programs optimize transactions. Member Legacy is designed to create a
-                different kind of bond, one grounded in belonging, reciprocity, and continuity.
+                Membership leaders are asked to prove value every year. Yet many programs compete
+                with benefits that are easy to compare, easy to copy, and easy for members to forget.
               </p>
             </div>
             <div className="benefit-grid">
-              {benefits.map(({ icon: Icon, title, body }, index) => (
-                <article className="benefit-card" key={title}>
+              {challenges.map(({ icon: Icon, title, body }, index) => (
+                <article className="benefit-card challenge-card" key={title}>
                   <div className="card-topline">
                     <Icon aria-hidden="true" size={24} strokeWidth={1.5} />
                     <span>0{index + 1}</span>
                   </div>
                   <h3>{title}</h3>
                   <p>{body}</p>
+                </article>
+              ))}
+            </div>
+            <div className="consequence-band">
+              <span>If nothing changes</span>
+              <p>
+                Premium membership keeps competing on price, differentiation gets harder to defend,
+                and a trusted member relationship never becomes something the family carries forward.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="section solution-section" id="solution">
+          <div className="shell solution-layout">
+            <div className="solution-reveal">
+              <div className="eyebrow light-eyebrow">A different kind of member benefit</div>
+              <h2>Extend the promise beyond the member.</h2>
+              <p>
+                Member Legacy places a family continuity benefit inside an existing membership.
+                If an eligible member dies, the program provides defined support to the person they
+                chose, under terms established with the sponsor and supporting partners.
+              </p>
+              <p>
+                The result is a benefit with emotional meaning for members and a disciplined
+                operating model for the organization behind it.
+              </p>
+            </div>
+            <div className="solution-principles">
+              {solutionPrinciples.map(({ icon: Icon, title, body }) => (
+                <article key={title}>
+                  <Icon aria-hidden="true" size={24} strokeWidth={1.45} />
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{body}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section value-section" id="value">
+          <div className="shell">
+            <div className="section-heading centered-heading value-heading">
+              <div className="eyebrow">What it changes</div>
+              <h2>Give the membership a value people can feel and leaders can defend.</h2>
+              <p>
+                The proposition works when it creates meaning for the member and a credible case
+                for the business at the same time.
+              </p>
+            </div>
+            <div className="business-value-grid">
+              {businessValues.map((item) => (
+                <article key={item.number}>
+                  <span>{item.number}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
                 </article>
               ))}
             </div>
@@ -225,12 +335,13 @@ export default function Home() {
           <div className="shell">
             <div className="section-heading centered-heading">
               <div className="eyebrow">How it works</div>
-              <h2>Simple to understand. Serious enough to design properly.</h2>
+              <h2>Make the promise simple by doing the design work first.</h2>
               <p>
-                The member promise stays clear because the program mechanics are settled before launch.
+                Member Legacy aligns the membership objective, benefit, partners, family experience,
+                and measurement before the program reaches members.
               </p>
             </div>
-            <div className="steps-grid">
+            <div className="steps-grid four-step-grid">
               {steps.map((step) => (
                 <article className="step-card" key={step.number}>
                   <span className="step-number">{step.number}</span>
@@ -243,67 +354,35 @@ export default function Home() {
             <div className="program-note">
               <ShieldCheck aria-hidden="true" size={24} strokeWidth={1.5} />
               <p>
-                Final terms cover eligibility, funding, administration, redemption, and compliance.
-                They are defined for each program before member-facing communication begins.
+                Final eligibility, funding, benefit terms, administration, member communication,
+                and regulatory treatment are defined for each program before launch.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="section provision-section" id="provision">
-          <div className="shell">
-            <div className="provision-intro">
-              <div>
-                <div className="eyebrow">Member Legacy Provision</div>
-                <h2>A small member investment. A benefit families can feel.</h2>
-              </div>
-              <div className="provision-summary">
-                <p>
-                  For a planning cost below $0.30 per eligible member each month, a membership
-                  brand can offer qualified members a company funded income protection benefit at
-                  no cost to the member.
-                </p>
-                <Link className="text-link" href="/case-study">
-                  Request the case study
-                  <ArrowRight aria-hidden="true" size={17} />
-                </Link>
-              </div>
+        <section className="section relationship-section" id="use-cases">
+          <div className="shell relationship-layout">
+            <div className="relationship-intro">
+              <div className="eyebrow">Built for relationships that renew</div>
+              <h2>The model follows the membership, not a single industry.</h2>
+              <p>
+                Member Legacy can be shaped for different recurring relationships. The benefit,
+                family experience, and business case are configured around the sponsor and the
+                members it serves.
+              </p>
             </div>
-
-            <div className="provision-mechanics">
-              <div className="provision-promise">
-                <span>Illustrative member promise</span>
-                <h3>Protection built into a relationship members already trust.</h3>
-                <p>
-                  A typical program can provide a beneficiary with a shopping allowance of up to
-                  $1,000 each month for up to 12 months, together with continued membership if the
-                  unexpected happens. Qualified members may also choose additional coverage at
-                  their own expense.
-                </p>
-                <div className="provision-model">
-                  <strong>2% to 3.5%</strong>
-                  <span>modeled retention lift among targeted member cohorts</span>
-                </div>
-              </div>
-
-              <div className="provision-values">
-                {provisionValues.map((value) => (
-                  <article key={value.number}>
-                    <span>{value.number}</span>
-                    <div>
-                      <h3>{value.title}</h3>
-                      <p>{value.body}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
+            <div className="relationship-list">
+              {relationshipTypes.map((item, index) => (
+                <article key={item.title}>
+                  <span>0{index + 1}</span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </div>
+                </article>
+              ))}
             </div>
-
-            <p className="provision-note">
-              Illustrative economics and benefit terms are planning assumptions, not guarantees.
-              Final eligibility, funding, benefit amounts, duration, administration, and regulatory
-              treatment are defined for each program.
-            </p>
           </div>
         </section>
 
@@ -312,51 +391,14 @@ export default function Home() {
             <div className="section-heading economics-heading">
               <div>
                 <div className="eyebrow light-eyebrow">The business case</div>
-                <h2>Put your numbers on the table.</h2>
+                <h2>Know what the program has to prove.</h2>
               </div>
               <p>
-                Replace vague ROI language with a model your finance team can challenge. Start with
-                conservative assumptions; improve them with real program data.
+                Use your own member population, program cost, and relationship value to establish
+                the break even threshold before a pilot begins.
               </p>
             </div>
-            <RoiCalculator />
-          </div>
-        </section>
-
-        <section className="section fit-section" id="fit">
-          <div className="shell fit-grid">
-            <div className="fit-copy">
-              <div className="eyebrow">Program fit</div>
-              <h2>Built to earn trust on both sides of the membership.</h2>
-              <p>
-                A thoughtful benefit must work for the family receiving it and the team responsible
-                for delivering the promise.
-              </p>
-              <a className="text-link" href={bookingUrl} target="_blank" rel="noreferrer">
-                Test the fit for your brand
-                <ArrowRight aria-hidden="true" size={17} />
-              </a>
-            </div>
-            <div className="fit-panels">
-              <article className="fit-panel member-panel">
-                <span>For members & families</span>
-                <h3>A promise they can understand.</h3>
-                <ul>
-                  <li><Check aria-hidden="true" size={17} /> Clear eligibility and benefit terms</li>
-                  <li><Check aria-hidden="true" size={17} /> Compassionate activation process</li>
-                  <li><Check aria-hidden="true" size={17} /> Useful value within a familiar brand</li>
-                </ul>
-              </article>
-              <article className="fit-panel team-panel">
-                <span>For your team</span>
-                <h3>A program they can operate.</h3>
-                <ul>
-                  <li><Check aria-hidden="true" size={17} /> Explicit economics and success measures</li>
-                  <li><Check aria-hidden="true" size={17} /> Agreed workflows and escalation paths</li>
-                  <li><Check aria-hidden="true" size={17} /> Brand, legal, and compliance review</li>
-                </ul>
-              </article>
-            </div>
+            <ThresholdCalculator />
           </div>
         </section>
 
@@ -366,8 +408,8 @@ export default function Home() {
               <div className="eyebrow">Questions worth asking</div>
               <h2>Clarity before commitment.</h2>
               <p>
-                A benefit this personal should not be sold with hand-waving. These are the questions
-                a serious evaluation should surface early.
+                A benefit this personal needs precise economics, responsibilities, and member
+                language. These are the questions a serious evaluation should surface early.
               </p>
             </div>
             <div className="faq-list">
@@ -385,16 +427,16 @@ export default function Home() {
           <div className="shell closing-card">
             <div className="closing-copy">
               <div className="eyebrow light-eyebrow">A more enduring reason to stay</div>
-              <h2>See whether Member Legacy belongs in your membership.</h2>
+              <h2>See what family continuity could mean for your membership.</h2>
               <p>
-                Bring your member economics. Leave with a sharper view of fit, break-even, and the
-                decisions required to move forward.
+                Bring one member group and one business question. We will help frame the benefit,
+                operating model, economics, and path to a controlled pilot.
               </p>
             </div>
-            <a className="button button-inverse" href={bookingUrl} target="_blank" rel="noreferrer">
-              Book a working session
+            <Link className="button button-inverse" href="/design-a-pilot#top">
+              Design a pilot
               <ArrowRight aria-hidden="true" size={18} />
-            </a>
+            </Link>
           </div>
         </section>
       </main>

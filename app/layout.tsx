@@ -5,25 +5,25 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://memberlegacy.com"),
   title: {
-    default: "Member Legacy | Loyalty That Outlives the Transaction",
+    default: "Member Legacy | A Benefit Families Remember",
     template: "%s | Member Legacy",
   },
   description:
-    "A member-exclusive family support benefit designed to deepen loyalty and create measurable value for membership brands.",
+    "Member Legacy helps membership businesses extend a trusted member relationship to the family through a sponsor funded continuity benefit.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Member Legacy",
-    title: "Member Legacy | Loyalty That Outlives the Transaction",
+    title: "Turn membership into something families remember.",
     description:
-      "A member-exclusive family support benefit designed to deepen loyalty and create measurable value for membership brands.",
+      "A family continuity benefit designed around your membership, your members, and your economics.",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Member Legacy | Loyalty That Outlives the Transaction",
+    title: "Turn membership into something families remember.",
     description:
-      "A member-exclusive family support benefit designed to deepen loyalty and create measurable value for membership brands.",
+      "A family continuity benefit designed around your membership, your members, and your economics.",
   },
 };
 

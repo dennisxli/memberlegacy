@@ -1,6 +1,6 @@
-# Case study lead connection
+# Pilot inquiry connection
 
-The website sends case study requests to a Google Apps Script web app. The script records each request in the `Member Legacy Case Study Leads` spreadsheet and emails `dennis@memberlegacy.com`.
+The website sends pilot inquiries to a Google Apps Script web app. The script records each request in the `Pilot Inquiries` worksheet and emails `dennis@memberlegacy.com`.
 
 1. Open the Google Sheet and select **Extensions**, then **Apps Script**.
 2. Replace the default script with `Code.gs` from this folder.
@@ -8,7 +8,7 @@ The website sends case study requests to a Google Apps Script web app. The scrip
 4. Set **Execute as** to yourself and **Who has access** to anyone.
 5. Authorize the script, deploy it, and copy the web app URL ending in `/exec`.
 6. Add that URL to Vercel as `GOOGLE_APPS_SCRIPT_WEBHOOK_URL` for Production, Preview, and Development.
-7. Redeploy the site and submit one test request from `/case-study`.
+7. Redeploy the site and submit one test request from `/design-a-pilot`.
 
 The destination spreadsheet is:
 

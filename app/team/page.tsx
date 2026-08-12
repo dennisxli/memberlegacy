@@ -2,19 +2,26 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { Footer, Header } from "../_components/chrome";
+import { ScrollToTop } from "../_components/scroll-to-top";
 
 export const metadata: Metadata = {
   title: "Dennis Li, Founder",
   description:
-    "Meet Dennis Li, founder of Member Legacy, and learn about his perspective on building better aligned insurance distribution.",
+    "Meet Dennis Li, FSA, founder of Member Legacy, and learn about his work across actuarial pricing, product strategy, and embedded insurance distribution.",
   alternates: { canonical: "/team" },
 };
 
-const focusAreas = ["Growth strategy", "Distribution", "Partnerships", "Technology"];
+const focusAreas = [
+  "Actuarial pricing",
+  "Product strategy",
+  "Embedded distribution",
+  "Credit unions",
+];
 
 export default function TeamPage() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <main className="team-main" id="top">
         <section className="team-hero">
@@ -38,10 +45,10 @@ export default function TeamPage() {
               <div className="eyebrow">Founder’s Perspective</div>
               <h1>Insurance works better when everyone is aligned.</h1>
               <p>
-                Dennis Li has spent his career developing and launching distribution channels
-                across the life and supplemental health markets. That experience showed him both
-                the extraordinary value insurance can provide and the persistent flaws in how it
-                reaches consumers.
+                Dennis Li, FSA, is an insurance executive and embedded distribution strategist
+                whose career spans actuarial pricing, product strategy, and channel development
+                across life and supplemental health. That experience showed him both the value
+                insurance can provide and the persistent flaws in how it reaches consumers.
               </p>
               <a className="text-link team-story-link" href="#perspective">
                 Read Dennis’s perspective
@@ -77,15 +84,22 @@ export default function TeamPage() {
               </blockquote>
               <p>
                 When those interests move together, consumers gain access to relevant,
-                cost effective protection. Organizations strengthen relationships they have already
+                accessible protection. Organizations strengthen relationships they have already
                 earned, while carriers reach the right customers through trusted and sustainable
                 channels.
               </p>
               <p>
+                Dennis has developed channels with financial institutions, credit unions, and other
+                membership organizations. He saw that these platforms already hold something the
+                traditional insurance process often has to build from scratch: an established
+                relationship with a defined community.
+              </p>
+              <p>
                 This conviction led Dennis to found Member Legacy. The company is developing an
-                embedded insurance model that places meaningful protection within existing member
-                relationships, making insurance easier to understand, more relevant to the consumer,
-                and more naturally connected to communities people already trust.
+                embedded family continuity model that places a sponsor funded benefit within an
+                existing member relationship. For membership and account platforms, it offers a way
+                to make the relationship more meaningful without beginning with another product
+                sales journey.
               </p>
               <p>
                 For Dennis, Member Legacy is more than a new distribution strategy. It is an
@@ -104,11 +118,10 @@ export default function TeamPage() {
             </div>
             <div className="team-about-copy">
               <p>
-                Dennis Li is the founder of Member Legacy and an experienced insurance executive
-                who has developed and launched distribution channels across the life and
-                supplemental health industries. His work focuses on embedded insurance and
-                consumer centered models that align carriers, distribution partners, membership
-                organizations, and the people they serve.
+                Dennis Li, FSA, is the founder of Member Legacy and an experienced insurance
+                executive. His work across actuarial pricing, product strategy, and channel
+                development includes building programs with credit unions and other member based
+                organizations across the life and supplemental health industries.
               </p>
               <p>
                 His vision is to prove that insurance distribution can work differently. When

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Member Legacy: Loyalty that outlives the transaction";
+export const alt = "Member Legacy: Turn membership into something families remember";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -30,10 +30,11 @@ export default function OpenGraphImage() {
               justifyContent: "center",
               background: "#c69b63",
               color: "#173a32",
-              fontWeight: 700,
+              fontFamily: "Georgia, serif",
+              fontSize: 38,
             }}
           >
-            M
+            ∞
           </div>
           <div style={{ display: "flex" }}>Member Legacy</div>
         </div>
@@ -42,7 +43,7 @@ export default function OpenGraphImage() {
             Turn membership into something families remember.
           </div>
           <div style={{ fontSize: 25, marginTop: 34, color: "#c9d7cc" }}>
-            A lasting loyalty benefit for membership brands.
+            A family continuity benefit for membership brands.
           </div>
         </div>
       </div>

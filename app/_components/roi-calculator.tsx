@@ -2,230 +2,258 @@
 
 import { useState } from "react";
 
-const compactCurrency = new Intl.NumberFormat("en-US", {
+const currency = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
   maximumFractionDigits: 0,
-  notation: "compact",
 });
 
 const wholeNumber = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 0,
 });
 
-const compactNumber = new Intl.NumberFormat("en-US", {
-  maximumFractionDigits: 1,
-  notation: "compact",
-});
+type CalculatorValues = {
+  offerEligibleMembers: string;
+  coveredMembers: string;
+  annualCostPerCoveredMember: string;
+  fixedPilotCost: string;
+  contributionMarginPerRelationship: string;
+};
 
-const MEMBER_MIN = 10_000;
-const MEMBER_MAX = 3_000_000_000;
-const MEMBER_SLIDER_MAX = 1_000;
+const initialValues: CalculatorValues = {
+  offerEligibleMembers: "",
+  coveredMembers: "",
+  annualCostPerCoveredMember: "",
+  fixedPilotCost: "",
+  contributionMarginPerRelationship: "",
+};
 
-function memberPositionFromValue(value: number) {
-  const progress =
-    (Math.log(value) - Math.log(MEMBER_MIN)) /
-    (Math.log(MEMBER_MAX) - Math.log(MEMBER_MIN));
-
-  return progress * MEMBER_SLIDER_MAX;
+function parsePositiveNumber(value: string) {
+  const parsed = Number(value.replaceAll(",", ""));
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
 }
 
-function memberValueFromPosition(position: number) {
-  const progress = position / MEMBER_SLIDER_MAX;
-  const rawValue = Math.exp(
-    Math.log(MEMBER_MIN) + progress * (Math.log(MEMBER_MAX) - Math.log(MEMBER_MIN)),
+export function ThresholdCalculator() {
+  const [values, setValues] = useState<CalculatorValues>(initialValues);
+
+  const offerEligibleMembers = parsePositiveNumber(values.offerEligibleMembers);
+  const coveredMembers = parsePositiveNumber(values.coveredMembers);
+  const annualCostPerCoveredMember = parsePositiveNumber(values.annualCostPerCoveredMember);
+  const fixedPilotCost = parsePositiveNumber(values.fixedPilotCost);
+  const contributionMarginPerRelationship = parsePositiveNumber(
+    values.contributionMarginPerRelationship,
   );
-  const roundingUnit = Math.max(1_000, 10 ** (Math.floor(Math.log10(rawValue)) - 2));
 
-  return Math.min(
-    MEMBER_MAX,
-    Math.max(MEMBER_MIN, Math.round(rawValue / roundingUnit) * roundingUnit),
-  );
-}
+  const coverageIsValid = coveredMembers <= offerEligibleMembers;
+  const hasCompleteInputs =
+    offerEligibleMembers > 0 &&
+    coveredMembers > 0 &&
+    annualCostPerCoveredMember > 0 &&
+    fixedPilotCost > 0 &&
+    contributionMarginPerRelationship > 0 &&
+    coverageIsValid;
 
-function formatMemberCount(value: number) {
-  return value >= 1_000_000 ? compactNumber.format(value) : wholeNumber.format(value);
-}
-
-export function RoiCalculator() {
-  const [memberPosition, setMemberPosition] = useState(() => memberPositionFromValue(100_000));
-  const [annualValue, setAnnualValue] = useState(480);
-  const [retentionLift, setRetentionLift] = useState(2.75);
-  const [monthlyCost, setMonthlyCost] = useState(0.25);
-
-  const members = memberValueFromPosition(memberPosition);
-  const retainedMembers = members * (retentionLift / 100);
-  const modeledValue = retainedMembers * annualValue;
-  const annualCost = members * monthlyCost * 12;
-  const netImpact = modeledValue - annualCost;
-  const roi = annualCost > 0 ? (netImpact / annualCost) * 100 : 0;
-  const breakEvenLift = members > 0 && annualValue > 0
-    ? (annualCost / (members * annualValue)) * 100
+  const annualBenefitCost = coveredMembers * annualCostPerCoveredMember;
+  const totalAnnualCost = annualBenefitCost + fixedPilotCost;
+  const incrementalRelationshipsRequired = hasCompleteInputs
+    ? Math.ceil(totalAnnualCost / contributionMarginPerRelationship)
     : 0;
+  const breakEvenRate = hasCompleteInputs
+    ? (incrementalRelationshipsRequired / offerEligibleMembers) * 100
+    : 0;
+  const requiredMarginPerEligibleMember = hasCompleteInputs
+    ? totalAnnualCost / offerEligibleMembers
+    : 0;
+
+  function updateValue(field: keyof CalculatorValues, value: string) {
+    setValues((current) => ({ ...current, [field]: value }));
+  }
 
   return (
     <>
-      <div className="calculator-grid">
-        <div className="calculator-controls">
-        <div className="range-field">
-          <div className="range-heading">
-            <label htmlFor="members">Active members</label>
-            <output htmlFor="members" title={wholeNumber.format(members)}>
-              {formatMemberCount(members)}
-            </output>
+      <div className="calculator-grid threshold-calculator">
+        <div className="calculator-controls threshold-controls">
+          <div className="calculator-instructions">
+            <span>Your inputs</span>
+            <p>Use a specific cohort and your own approved planning assumptions.</p>
           </div>
-          <input
-            id="members"
-            type="range"
-            min="0"
-            max={MEMBER_SLIDER_MAX}
-            step="0.1"
-            value={memberPosition}
-            aria-valuetext={`${wholeNumber.format(members)} active members`}
-            onChange={(event) => setMemberPosition(Number(event.target.value))}
-          />
-          <div className="range-limits" aria-hidden="true">
-            <span>10K</span>
-            <span>3B</span>
-          </div>
-          <p className="range-context">Logarithmic scale for organizations of very different sizes.</p>
-        </div>
 
-        <div className="range-field">
-          <div className="range-heading">
-            <label htmlFor="annual-value">Annual contribution margin per retained member</label>
-            <output htmlFor="annual-value">${wholeNumber.format(annualValue)}</output>
-          </div>
-          <input
-            id="annual-value"
-            type="range"
-            min="100"
-            max="1200"
-            step="20"
-            value={annualValue}
-            onChange={(event) => setAnnualValue(Number(event.target.value))}
-          />
-          <div className="range-limits" aria-hidden="true">
-            <span>$100</span>
-            <span>$1,200</span>
-          </div>
-        </div>
-
-        <div className="range-field">
-          <div className="range-heading">
-            <label htmlFor="retention-lift">
-              Average modeled retention lift
-              <span className="average-badge">Average we see</span>
+          <div className="number-field-grid">
+            <label className="number-field">
+              <span>Offer eligible members</span>
+              <small>People included in the business case denominator</small>
+              <input
+                name="offerEligibleMembers"
+                type="number"
+                min="1"
+                step="1"
+                inputMode="numeric"
+                placeholder="e.g. 100,000"
+                value={values.offerEligibleMembers}
+                onChange={(event) => updateValue("offerEligibleMembers", event.target.value)}
+              />
             </label>
-            <output htmlFor="retention-lift">{retentionLift.toFixed(2)} pts</output>
+
+            <label className="number-field">
+              <span>Covered members</span>
+              <small>People whose benefit cost is included</small>
+              <input
+                name="coveredMembers"
+                type="number"
+                min="1"
+                step="1"
+                inputMode="numeric"
+                placeholder="e.g. 50,000"
+                value={values.coveredMembers}
+                onChange={(event) => updateValue("coveredMembers", event.target.value)}
+              />
+            </label>
+
+            <label className="number-field">
+              <span>Annual cost per covered member</span>
+              <small>Estimated benefit and variable administration cost</small>
+              <div className="currency-input">
+                <span aria-hidden="true">$</span>
+                <input
+                  name="annualCostPerCoveredMember"
+                  type="number"
+                  min="0.01"
+                  step="0.01"
+                  inputMode="decimal"
+                  placeholder="Enter amount"
+                  value={values.annualCostPerCoveredMember}
+                  onChange={(event) =>
+                    updateValue("annualCostPerCoveredMember", event.target.value)
+                  }
+                />
+              </div>
+            </label>
+
+            <label className="number-field">
+              <span>Fixed annual pilot cost</span>
+              <small>Implementation, operations, and measurement</small>
+              <div className="currency-input">
+                <span aria-hidden="true">$</span>
+                <input
+                  name="fixedPilotCost"
+                  type="number"
+                  min="1"
+                  step="1"
+                  inputMode="numeric"
+                  placeholder="Enter amount"
+                  value={values.fixedPilotCost}
+                  onChange={(event) => updateValue("fixedPilotCost", event.target.value)}
+                />
+              </div>
+            </label>
+
+            <label className="number-field number-field-wide">
+              <span>Contribution margin per incremental relationship</span>
+              <small>Annual value your finance team assigns to one retained or added relationship</small>
+              <div className="currency-input">
+                <span aria-hidden="true">$</span>
+                <input
+                  name="contributionMarginPerRelationship"
+                  type="number"
+                  min="1"
+                  step="1"
+                  inputMode="numeric"
+                  placeholder="Enter amount"
+                  value={values.contributionMarginPerRelationship}
+                  onChange={(event) =>
+                    updateValue("contributionMarginPerRelationship", event.target.value)
+                  }
+                />
+              </div>
+            </label>
           </div>
-          <input
-            id="retention-lift"
-            type="range"
-            min="0.1"
-            max="3.5"
-            step="0.05"
-            value={retentionLift}
-            aria-valuetext={`${retentionLift.toFixed(2)} percentage points of modeled retention lift`}
-            onChange={(event) => setRetentionLift(Number(event.target.value))}
-          />
-          <div className="range-limits" aria-hidden="true">
-            <span>0.1 pts</span>
-            <span>3.5 pts</span>
-          </div>
-          <p className="range-context average-context">
-            2.75 points is the average modeled lift we see across current program scenarios. Adjust
-            it to reflect your own case.
-          </p>
+
+          {!coverageIsValid ? (
+            <p className="calculator-validation" role="alert">
+              Covered members cannot exceed offer eligible members.
+            </p>
+          ) : null}
         </div>
 
-        <div className="range-field">
-          <div className="range-heading">
-            <label htmlFor="monthly-cost">Monthly program cost per member</label>
-            <output htmlFor="monthly-cost">${monthlyCost.toFixed(2)}</output>
-          </div>
-          <input
-            id="monthly-cost"
-            type="range"
-            min="0.05"
-            max="0.5"
-            step="0.05"
-            value={monthlyCost}
-            onChange={(event) => setMonthlyCost(Number(event.target.value))}
-          />
-          <div className="range-limits" aria-hidden="true">
-            <span>$0.05</span>
-            <span>$0.50</span>
-          </div>
-        </div>
-      </div>
-
-        <div className="calculator-results" aria-live="polite">
-        <div className="results-kicker">Your modeled annual scenario</div>
-        <div className="primary-result">
-          <span>Net value after program cost</span>
-          <strong className={netImpact < 0 ? "negative" : undefined}>
-            {compactCurrency.format(netImpact)}
-          </strong>
-        </div>
-        <div className="result-list">
-          <div>
-            <span>Members retained</span>
-            <strong title={wholeNumber.format(Math.round(retainedMembers))}>
-              {formatMemberCount(Math.round(retainedMembers))}
+        <div className="calculator-results threshold-results" aria-live="polite">
+          <div className="results-kicker">Break even output</div>
+          <div className="primary-result">
+            <span>Incremental relationships required</span>
+            <strong>
+              {hasCompleteInputs
+                ? wholeNumber.format(incrementalRelationshipsRequired)
+                : "Enter your inputs"}
             </strong>
           </div>
-          <div>
-            <span>Value preserved</span>
-            <strong>{compactCurrency.format(modeledValue)}</strong>
+          <div className="result-list">
+            <div>
+              <span>Annual benefit cost</span>
+              <strong>{hasCompleteInputs ? currency.format(annualBenefitCost) : "Not calculated"}</strong>
+            </div>
+            <div>
+              <span>Total annual cost</span>
+              <strong>{hasCompleteInputs ? currency.format(totalAnnualCost) : "Not calculated"}</strong>
+            </div>
+            <div>
+              <span>Break even rate</span>
+              <strong>{hasCompleteInputs ? `${breakEvenRate.toFixed(2)}%` : "Not calculated"}</strong>
+            </div>
+            <div>
+              <span>Required margin per eligible member</span>
+              <strong>
+                {hasCompleteInputs
+                  ? currency.format(requiredMarginPerEligibleMember)
+                  : "Not calculated"}
+              </strong>
+            </div>
           </div>
-          <div>
-            <span>Annual program cost</span>
-            <strong>{compactCurrency.format(annualCost)}</strong>
+          <div className="model-formula">
+            <span>How the threshold works</span>
+            <strong>Total annual cost ÷ contribution margin per relationship</strong>
+            <small>
+              Break even rate equals required incremental relationships divided by offer eligible
+              members.
+            </small>
           </div>
-          <div>
-            <span>Modeled ROI</span>
-            <strong className={roi < 0 ? "negative" : undefined}>{Math.round(roi)}%</strong>
-          </div>
-        </div>
-        <div className="break-even">
-          <span>Break-even retention lift</span>
-          <strong>{breakEvenLift.toFixed(2)} percentage points</strong>
-        </div>
-        <div className="model-formula">
-          <span>How the model works</span>
-          <strong>Members × modeled lift × annual contribution margin</strong>
-          <small>Net modeled value equals value preserved minus annual program cost.</small>
-        </div>
-        <p>
-          This is a transparent planning model, not a performance guarantee. It excludes rollout,
-          tax, and other implementation-specific costs.
-        </p>
+          <p>
+            This tool does not predict retention, conversion, or program performance. It shows the
+            business threshold your pilot would need to clear using the assumptions you enter.
+          </p>
         </div>
       </div>
+
       <section className="strategic-value-panel" aria-labelledby="strategic-value-heading">
         <div className="strategic-value-heading">
-          <span>Value beyond the formula</span>
+          <span>Interpret the model by channel</span>
           <h3 id="strategic-value-heading">
-            The financial model captures retention. It does not capture every strategic return.
+            The same cost threshold can be supported by different sources of business value.
           </h3>
-          <p>These benefits strengthen the investment case but are not added to the ROI output.</p>
+          <p>Define the value levers before choosing the metric used to judge the pilot.</p>
         </div>
-        <div className="strategic-value-grid">
+        <div className="strategic-value-grid channel-value-grid">
           <article>
-            <span>01</span>
-            <h4>Brand value</h4>
-            <p>Reinforces trust by showing members that the relationship extends to their family.</p>
+            <span>Financial membership</span>
+            <h4>Paid tier and account value</h4>
+            <p>
+              Evaluate tier retention, account depth, funded balances, engagement, or another
+              sponsor approved relationship metric.
+            </p>
           </article>
           <article>
-            <span>02</span>
-            <h4>Marketing value</h4>
-            <p>Creates a credible story for acquisition, upgrades, and member reengagement.</p>
+            <span>Commerce membership</span>
+            <h4>Renewal and household value</h4>
+            <p>
+              Evaluate membership renewal, tier mix, household engagement, or other measurable
+              membership economics.
+            </p>
           </article>
           <article>
-            <span>03</span>
-            <h4>Differentiating value</h4>
-            <p>Offers a meaningful benefit competitors cannot quickly reproduce with points or price.</p>
+            <span>Denominator discipline</span>
+            <h4>Eligible is not always covered</h4>
+            <p>
+              Keep the offer eligible population separate from the covered population so the cost
+              base and break even rate remain clear.
+            </p>
           </article>
         </div>
       </section>

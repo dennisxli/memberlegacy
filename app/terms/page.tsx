@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Footer, Header, bookingUrl } from "../_components/chrome";
+import { Footer, Header } from "../_components/chrome";
 
 export const metadata: Metadata = {
   title: "Terms",
@@ -15,7 +15,7 @@ export default function TermsPage() {
         <article className="shell legal-article">
           <div className="eyebrow">Terms</div>
           <h1>Website terms</h1>
-          <p className="legal-updated">Last updated: August 5, 2026</p>
+          <p className="legal-updated">Last updated: August 11, 2026</p>
 
           <p>
             These terms govern use of memberlegacy.com. By using the site, you agree to use it lawfully
@@ -30,16 +30,16 @@ export default function TermsPage() {
 
           <h2>Program descriptions</h2>
           <p>
-            Descriptions of Member Legacy are illustrative. Final eligibility, funding, allowance,
-            duration, administration, redemption, compliance, and other terms are established in a
-            separate written agreement for each program.
+            Descriptions of Member Legacy are illustrative. Final eligibility, funding, benefit
+            amount and duration, administration, member experience, regulatory treatment, and other
+            terms are established in a separate written agreement for each program.
           </p>
 
-          <h2>ROI calculator</h2>
+          <h2>Break even calculator</h2>
           <p>
-            Calculator outputs are hypothetical scenarios based entirely on the inputs selected. They
-            are not forecasts, evidence of results, or guarantees. Actual costs and outcomes may differ
-            materially and require independent evaluation.
+            Calculator outputs are threshold scenarios based entirely on the information a visitor
+            enters. They are not forecasts, evidence of results, or guarantees. Costs and outcomes
+            require independent evaluation and may differ materially.
           </p>
 
           <h2>Intellectual property</h2>
@@ -51,9 +51,8 @@ export default function TermsPage() {
 
           <h2>Third-party services</h2>
           <p>
-            The site may link to third-party services, including Google Calendar. Member Legacy does not
-            control those services and is not responsible for their availability, content, security, or
-            terms.
+            The site may use or link to third party services. Member Legacy does not control those
+            services and is not responsible for their availability, content, security, or terms.
           </p>
 
           <h2>No warranty</h2>
@@ -64,11 +63,11 @@ export default function TermsPage() {
           </p>
 
           <p className="legal-callout">
-            <strong>Implementation note:</strong> These website terms are a practical launch draft, not
-            a substitute for review by counsel for the operating entity and jurisdictions involved.
+            Pilot participation, insurance arrangements, and any commercial engagement are governed
+            by separate written agreements, not these website terms.
           </p>
 
-          <a className="button" href={bookingUrl} target="_blank" rel="noreferrer">
+          <a className="button" href="mailto:dennis@memberlegacy.com">
             Ask a question
           </a>
         </article>
