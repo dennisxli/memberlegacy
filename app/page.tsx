@@ -6,11 +6,6 @@ import {
   ArrowRight,
   Check,
   CircleDollarSign,
-  HeartHandshake,
-  Layers3,
-  Network,
-  Route,
-  Settings2,
   ShieldCheck,
   Sparkles,
   UsersRound,
@@ -20,9 +15,9 @@ import { ThresholdCalculator } from "./_components/roi-calculator";
 import heroImage from "../public/hero-family.webp";
 
 export const metadata: Metadata = {
-  title: "Member Legacy | Product-Connected Family Protection",
+  title: "Member Legacy | Family Continuity for Membership Organizations",
   description:
-    "Member Legacy designs family protection programs around the products and services customers already value, aligning benefit design, insurance economics, operations, and measurement.",
+    "Member Legacy offers family continuity programs built around the products and services members already value.",
   alternates: { canonical: "/" },
 };
 
@@ -32,24 +27,43 @@ const organizationJsonLd = {
   name: "Member Legacy",
   url: "https://memberlegacy.com",
   description:
-    "Member Legacy designs partner-specific family protection programs around the products and services customers already value.",
+    "Member Legacy offers family continuity programs built around the products and services members already value.",
 };
 
 const challenges = [
   {
     icon: Sparkles,
     title: "Generic benefits are interchangeable",
-    body: "Discounts, wellness tools, and off-the-shelf coverage can add value, but competitors can offer similar catalogs.",
+    body: "Discounts, wellness tools, and off-the-shelf coverage may add value, but similar catalogs are easy for other organizations to offer.",
   },
   {
     icon: CircleDollarSign,
     title: "Insurance can feel abstract",
-    body: "A generic coverage amount may be difficult to connect to the needs and decisions of everyday family life.",
+    body: "A coverage amount alone may be difficult for members to connect to the needs and decisions of everyday family life.",
   },
   {
     icon: UsersRound,
-    title: "The partner loses attribution",
-    body: "When the benefit feels separate from the core relationship, customers may remember the vendor or carrier rather than the organization that made it possible.",
+    title: "The organization loses attribution",
+    body: "When the benefit feels separate from the core relationship, members may remember the vendor or carrier rather than the organization that made it possible.",
+  },
+];
+
+const illustrativeSteps = [
+  {
+    title: "A valued member relationship",
+    body: "Eligible premium-tier members who meet a defined tenure requirement receive a base family continuity benefit as part of the membership.",
+  },
+  {
+    title: "A defined covered event",
+    body: "If an eligible member dies, the benefit is activated for the family according to the approved program terms.",
+  },
+  {
+    title: "Support the family can immediately understand",
+    body: "The family receives a defined monthly allowance for up to 12 months that can be used for groceries and household essentials through the sponsoring organization.",
+  },
+  {
+    title: "Continuity through a familiar relationship",
+    body: "The household can keep purchasing necessities during a difficult period, while the organization remains visibly connected to the support it made possible.",
   },
 ];
 
@@ -57,101 +71,80 @@ const productMappings = [
   {
     relationship: "Household essentials",
     concept: "A defined allowance for groceries and everyday needs",
-    outcome: "The family can continue purchasing necessities",
+    outcome: "Purchasing necessities through a familiar relationship",
   },
   {
     relationship: "Saving and investing",
     concept: "Support designed around continued financial progress",
-    outcome: "The family’s goals do not stop at the covered event",
+    outcome: "Making progress toward important family goals",
   },
   {
     relationship: "Paid access or services",
     concept: "Continued access or a related defined benefit",
-    outcome: "The household keeps receiving familiar support",
+    outcome: "Receiving familiar support without an immediate interruption",
   },
   {
     relationship: "Recurring financial commitments",
     concept: "Temporary support tied to a defined obligation",
-    outcome: "The family gains time and financial breathing room",
+    outcome: "Gaining time and financial breathing room",
   },
 ];
 
 const comparisonRows = [
   {
     generic: "Starts with an existing catalog",
-    memberLegacy: "Starts with the partner’s core product and customer promise",
+    memberLegacy: "Starts with the organization’s core product and member promise",
   },
   {
     generic: "Adds benefits beside the core offering",
-    memberLegacy: "Connects protection directly to the value customers already receive",
+    memberLegacy: "Connects protection directly to the value members already receive",
   },
   {
     generic: "Uses similar products across many partners",
-    memberLegacy: "Designs the program, language, and experience for the specific relationship",
+    memberLegacy: "Builds the program, language, and experience for the specific relationship",
   },
   {
-    generic: "Sends customers into a separate benefit journey",
-    memberLegacy: "Makes the protection feel native to the partner experience",
+    generic: "Sends members into a separate benefit journey",
+    memberLegacy: "Makes the protection feel native to the member experience",
   },
   {
     generic: "Measures platform engagement",
-    memberLegacy: "Defines partner-specific business outcomes before launch",
+    memberLegacy: "Defines organization-specific business outcomes before launch",
   },
 ];
 
-const capabilities = [
+const programSteps = [
   {
     number: "01",
-    icon: Route,
-    title: "Relationship strategy",
-    body: "Define the customer cohort, partner objective, and behavior the program should support.",
+    title: "Understand the member relationship",
+    body: "Identify the core product or service, the members who value it, and the business objective the program should support.",
   },
   {
     number: "02",
-    icon: Layers3,
-    title: "Benefit architecture",
-    body: "Translate the partner’s core value into a clear protected outcome and customer promise.",
+    title: "Define the continuity promise",
+    body: "Translate that value into a clear form of protection members can understand and families can use after a defined covered event.",
   },
   {
     number: "03",
-    icon: CircleDollarSign,
-    title: "Insurance economics",
-    body: "Establish the cost ceiling, funding approach, benefit parameters, eligibility, and supporting insurance structure.",
-  },
-  {
-    number: "04",
-    icon: Network,
-    title: "Partner orchestration",
-    body: "Align the required carrier, administrator, technology, legal, compliance, and operational participants.",
-  },
-  {
-    number: "05",
-    icon: HeartHandshake,
-    title: "Customer and family experience",
-    body: "Design communication, activation, beneficiary designation, servicing, and the experience following a covered event.",
-  },
-  {
-    number: "06",
-    icon: Settings2,
-    title: "Launch and measurement",
-    body: "Build the go-to-market plan and define the business and customer outcomes the pilot must test.",
+    title: "Build the program and path to launch",
+    body: "Shape the benefit, economics, member experience, operating requirements, go-to-market plan, and measurement approach around the promise.",
   },
 ];
 
 const lifecycleStages = [
-  ["Acquisition", "Gives the organization a distinctive promise grounded in its core value"],
-  ["Tier or product selection", "Creates a tangible reason to choose or upgrade the relationship"],
+  ["Acquisition", "Supports a distinctive promise grounded in the organization’s core member value"],
+  ["Product or tier selection", "Creates a tangible reason to choose or upgrade the relationship"],
   ["Onboarding", "Makes the protection concrete through clear explanation and beneficiary designation where applicable"],
   ["Engagement", "Reinforces the value through relevant, restrained communication"],
-  ["Renewal or continued use", "Gives customers another reason to preserve the relationship"],
-  ["Covered event", "Delivers the partner’s promise when the family needs it"],
+  ["Renewal or continued use", "Creates another reason for members to preserve the relationship"],
+  ["Covered event", "Is designed to deliver the organization’s promise when the family needs it"],
   ["Family continuity", "Creates an appropriate path for the family to continue the relationship"],
 ];
 
 const programStructures = [
   {
     title: "Included protection",
-    body: "The organization sponsors a defined base benefit for an eligible customer group.",
+    body: "The organization sponsors a defined base benefit for an eligible member group.",
   },
   {
     title: "Premium-tier protection",
@@ -159,52 +152,57 @@ const programStructures = [
   },
   {
     title: "Optional enhancement",
-    body: "Eligible customers may choose additional protection under separately approved terms.",
+    body: "Eligible members may choose additional protection under separately approved terms.",
   },
   {
     title: "Hybrid program",
-    body: "A partner-sponsored foundation can be paired with an optional customer-paid enhancement.",
+    body: "An organization-sponsored foundation can be paired with an optional member-paid enhancement.",
   },
 ];
 
 const partnerSignals = [
-  "A trusted, recurring customer relationship",
+  "A trusted, recurring member relationship",
   "A core product or service with tangible household value",
-  "A defined customer population and direct communication channel",
+  "A defined member population and direct communication channel",
   "A strategic need to improve differentiation, acquisition, upgrades, engagement, or retention",
   "Enough relationship value to support an included, premium-tier, optional, or hybrid structure",
 ];
 
 const faqs = [
   {
-    question: "What is Member Legacy?",
+    question: "What is a family continuity program?",
     answer:
-      "Member Legacy is a product-design specialist for partner-connected family protection. We help organizations translate the value of an existing product or service into a protection program, then align the insurance economics, operating partners, customer experience, and measurement plan required to launch it responsibly.",
+      "A family continuity program connects protection to a product or service members already value, helping the family continue, replace, or fund part of that value after a defined covered event.",
   },
   {
-    question: "How is this different from adding insurance to a benefits marketplace?",
+    question: "What could this look like for a membership organization?",
     answer:
-      "A marketplace begins with products that are already available. Member Legacy begins with the partner’s core customer promise. The benefit, language, experience, and business case are designed around that relationship rather than added beside it.",
+      "One illustrative structure could provide eligible premium-tier members with a base benefit that gives their family a defined monthly allowance for household essentials after a covered event. Other organizations may build continuity around savings, services, access, or recurring financial commitments. Every structure is subject to product, legal, compliance, operational, and partner approval.",
   },
   {
-    question: "What can a program protect?",
+    question: "How does Member Legacy build a program?",
     answer:
-      "The protected outcome depends on what the partner already provides and what can be supported responsibly. It may involve a defined cash benefit, allowance, continued access, payment support, or another approved form of family support. Final language is developed only after the structure and terms are established.",
+      "We begin with the organization’s core product or service, the members it serves, the family outcome it wants to make possible, and the business objective it wants to test. Those inputs shape the program, economics, member experience, operating requirements, go-to-market plan, and measurement approach.",
   },
   {
-    question: "Which organizations are the strongest fit?",
+    question: "Who establishes the program terms?",
     answer:
-      "The strongest opportunities have a defined customer population, a trusted recurring relationship, tangible household value, direct customer communication, and a clear business objective such as differentiation, acquisition, upgrades, engagement, or retention.",
+      "Eligibility, covered events, benefit amounts, duration, funding, insurance structure, administration, availability, and regulatory treatment are established for each program with the appropriate legal, compliance, operating, and provider approvals.",
   },
   {
     question: "Must the organization pay for the entire benefit?",
     answer:
-      "No single funding model fits every relationship. A program may use an included partner-sponsored benefit, a premium-tier benefit, an optional customer-paid enhancement, or a hybrid structure. Product availability and regulatory requirements must be evaluated for each program.",
+      "No single funding model fits every relationship. A program may use an included organization-sponsored benefit, a premium-tier benefit, an optional member-paid enhancement, or a hybrid structure. Product availability and regulatory requirements must be evaluated for each program.",
   },
   {
     question: "How much does a program cost?",
     answer:
-      "There is no universal published price. Cost depends on the eligible and covered populations, covered events, benefit design, duration, insurance structure, administration, customer experience, and pilot scope. Member Legacy designs against a partner-approved cost ceiling and measurement plan.",
+      "There is no universal published price. Cost depends on the eligible and covered populations, covered events, benefit design, duration, insurance structure, administration, member experience, and pilot scope. Member Legacy designs against an organization-approved cost ceiling and measurement plan.",
+  },
+  {
+    question: "Is every program structure available in every market?",
+    answer:
+      "No. Product availability, underwriting, funding, administration, legal requirements, and regulatory treatment vary by program and market. Availability is confirmed only after the relevant structure and partners have been evaluated and approved.",
   },
   {
     question: "Does Member Legacy guarantee retention or ROI?",
@@ -214,7 +212,7 @@ const faqs = [
   {
     question: "How does a pilot begin?",
     answer:
-      "A working session identifies the core product or service, target customer group, desired family outcome, business objective, cost ceiling, potential program structure, operating requirements, and measurement approach. Member Legacy then frames a concept and controlled pilot for partner and provider review.",
+      "A working session identifies the core product or service, target member group, desired family outcome, business objective, cost ceiling, potential program structure, operating requirements, and measurement approach. Member Legacy then frames a concept and controlled pilot for organization and provider review.",
   },
 ];
 
@@ -232,30 +230,31 @@ export default function Home() {
         <section className="hero product-hero">
           <div className="shell hero-grid">
             <div className="hero-copy">
-              <div className="eyebrow">Product-connected family protection</div>
+              <div className="eyebrow">Family continuity for membership-based organizations</div>
               <h1>
-                Turn what customers rely on today into protection their families can rely on <span>tomorrow.</span>
+                Turn what members value today into protection their families can rely on <span>tomorrow.</span>
               </h1>
               <p className="hero-lede product-hero-lede">
-                Member Legacy designs family protection programs around the product or service your
-                customers already value. We connect benefit design, insurance economics,
-                operations, and go-to-market to create a program that is simple for customers to
-                understand and meaningful for the business.
+                Member Legacy offers family continuity programs built around the products and
+                services your members already value. We bring together benefit design, program
+                economics, operations, and go-to-market expertise to make the protection simple for
+                members to understand, meaningful to their families, and valuable to the
+                organization over time.
               </p>
               <div className="hero-actions">
                 <Link className="button" href="/design-a-pilot#top">
                   Explore a program
                   <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
                 </Link>
-                <Link className="text-link" href="#our-approach">
+                <Link className="text-link" href="#example">
                   See how it works
                   <ArrowDown aria-hidden="true" size={17} />
                 </Link>
               </div>
               <div className="hero-principles" aria-label="Program principles">
-                <span><Check aria-hidden="true" size={15} /> Built around your core product</span>
-                <span><Check aria-hidden="true" size={15} /> Designed for immediate understanding</span>
-                <span><Check aria-hidden="true" size={15} /> Structured for measurable business value</span>
+                <span><Check aria-hidden="true" size={15} /> Built around your core product and value proposition</span>
+                <span><Check aria-hidden="true" size={15} /> Designed to offer distinctive value to members and their families</span>
+                <span><Check aria-hidden="true" size={15} /> Structured for measurable, durable business value</span>
               </div>
             </div>
 
@@ -283,15 +282,15 @@ export default function Home() {
           <div className="shell signal-grid">
             <div>
               <strong>More than an added benefit</strong>
-              <span>Designed from the relationship customers already value</span>
+              <span>Extends the value members already associate with your organization</span>
             </div>
             <div>
               <strong>More than a payout</strong>
-              <span>Expressed through a product or service customers understand</span>
+              <span>Turns protection into something families can picture and use</span>
             </div>
             <div>
               <strong>More than a launch</strong>
-              <span>Built to create value across the customer lifecycle</span>
+              <span>Creates a promise designed to support upgrades, engagement, retention, and continuity</span>
             </div>
           </div>
         </section>
@@ -301,13 +300,13 @@ export default function Home() {
             <div className="section-heading split-heading">
               <div>
                 <div className="eyebrow">The disconnect</div>
-                <h2>Most benefits are added to the customer relationship. They are not built from it.</h2>
+                <h2>Most member benefits sit beside the relationship. The strongest ones grow from it.</h2>
               </div>
               <p>
-                Organizations invest in benefits to differentiate their offering and strengthen
-                customer relationships. Too often, those benefits sit beside the core product,
-                feel interchangeable, and give customers little reason to associate the value with
-                the organization that sponsored it.
+                Membership organizations invest in benefits to differentiate their offering and
+                strengthen member relationships. Too often, those benefits feel generic, sit apart
+                from the core product, and give members little reason to connect the value with the
+                organization that provided it.
               </p>
             </div>
             <div className="benefit-grid">
@@ -325,10 +324,55 @@ export default function Home() {
             <div className="consequence-band">
               <span>The consequence</span>
               <p>
-                The organization pays for a benefit, but the customer does not fully understand it,
+                The organization pays for a benefit, but the member may not fully understand it,
                 value it, or connect it to the relationship.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section className="section example-section" id="example">
+          <div className="shell">
+            <div className="example-intro">
+              <div>
+                <div className="eyebrow light-eyebrow">An illustrative member program</div>
+                <h2>Make family continuity as tangible as a year of help with everyday essentials.</h2>
+              </div>
+              <p>
+                Consider a membership organization built around groceries and household essentials.
+                Instead of adding a generic insurance benefit beside the membership, the organization
+                connects the protection directly to what members already rely on.
+              </p>
+            </div>
+            <div className="example-flow" aria-label="Illustrative member program flow">
+              {illustrativeSteps.map((step, index) => (
+                <article key={step.title}>
+                  <span className="example-step-number">0{index + 1}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </article>
+              ))}
+            </div>
+            <div className="example-reveal">
+              <span>The idea made tangible</span>
+              <p>
+                The protection is no longer an abstract dollar amount. It is a year of help with
+                everyday essentials, delivered through a relationship the family already knows.
+              </p>
+            </div>
+            <div className="example-value">
+              <span>Value to the organization</span>
+              <p>
+                For the organization, the same program can make a premium tier more distinctive,
+                give members a tangible reason to join, upgrade, and stay, and extend the
+                relationship to the family when it matters most.
+              </p>
+            </div>
+            <p className="qualification example-qualification">
+              This example is illustrative. Eligibility, covered events, benefit amounts, duration,
+              funding, insurance structure, administration, availability, and regulatory treatment
+              must be established and approved for each program.
+            </p>
           </div>
         </section>
 
@@ -336,35 +380,37 @@ export default function Home() {
           <div className="shell">
             <div className="mapping-intro">
               <div>
-                <div className="eyebrow light-eyebrow">Our design principle</div>
-                <h2>Connect the protection to what the relationship already provides.</h2>
+                <div className="eyebrow">The principle</div>
+                <h2>The product may change. The continuity logic does not.</h2>
               </div>
               <div className="mapping-copy">
                 <p>
-                  Member Legacy starts with the value customers already receive from the
-                  organization. We then design a protected outcome that helps the family continue
-                  receiving or replacing part of that value after a defined covered event.
+                  Member Legacy starts with the value members already receive and asks what part of
+                  that value their families should be able to continue, replace, or fund after a
+                  defined covered event. That connection makes the protection easier to understand
+                  and more closely associated with the organization providing it.
                 </p>
                 <p>
-                  The customer does not need to translate an abstract insurance product into
-                  everyday meaning. The connection is already visible.
+                  Household essentials are one example. The same design principle can apply to
+                  saving and investing, paid access and services, recurring financial commitments,
+                  and other products with tangible value in members’ lives.
                 </p>
               </div>
             </div>
 
             <div className="product-map" aria-label="Illustrative product-to-protection concepts">
               <div className="product-map-head" aria-hidden="true">
-                <span>What customers value now</span>
-                <span>What disruption puts at risk</span>
-                <span>What the program helps the family continue</span>
+                <span>What members value now</span>
+                <span>Family continuity concept</span>
+                <span>What the family can continue</span>
               </div>
               {productMappings.map((item, index) => (
                 <article className="product-map-row" key={item.relationship}>
-                  <div data-label="What customers value now">
+                  <div data-label="What members value now">
                     <span className="map-number">0{index + 1}</span>
                     <strong>{item.relationship}</strong>
                   </div>
-                  <div data-label="Product-connected protection concept">
+                  <div data-label="Family continuity concept">
                     <ArrowRight aria-hidden="true" size={17} />
                     <span>{item.concept}</span>
                   </div>
@@ -376,8 +422,8 @@ export default function Home() {
               ))}
             </div>
             <p className="qualification">
-              Concepts are illustrative. Each program is subject to product design, underwriting,
-              legal, compliance, operational, and partner approval.
+              Concepts are illustrative. Each program is subject to benefit and product design,
+              underwriting, legal, compliance, operational, availability, and partner approval.
             </p>
           </div>
         </section>
@@ -386,21 +432,23 @@ export default function Home() {
           <div className="shell comparison-layout">
             <div className="comparison-intro">
               <div className="eyebrow">Built, not bundled</div>
-              <h2>The program begins with your customer promise, not a benefits catalog.</h2>
+              <h2>Begin with the member promise, not a benefits catalog.</h2>
               <p>
-                Product-connected protection is designed to feel attributable, relevant, and
-                native to the relationship your organization has already earned.
+                Member Legacy does not begin with a shelf of unrelated benefits. We begin with what
+                members already value, what their families should be able to continue, and what the
+                organization wants the relationship to mean. The program is then built around that
+                connection.
               </p>
             </div>
             <div className="comparison-grid" role="list" aria-label="Approach comparison">
               <div className="comparison-head" aria-hidden="true">
                 <span>Generic benefits platform</span>
-                <span>Member Legacy</span>
+                <span>The Member Legacy approach</span>
               </div>
               {comparisonRows.map((row) => (
                 <div className="comparison-row" role="listitem" key={row.generic}>
                   <div data-label="Generic benefits platform">{row.generic}</div>
-                  <div data-label="Member Legacy"><Check aria-hidden="true" size={16} />{row.memberLegacy}</div>
+                  <div data-label="The Member Legacy approach"><Check aria-hidden="true" size={16} />{row.memberLegacy}</div>
                 </div>
               ))}
             </div>
@@ -410,18 +458,19 @@ export default function Home() {
         <section className="section capability-section">
           <div className="shell">
             <div className="section-heading centered-heading capability-heading">
-              <div className="eyebrow light-eyebrow">From concept to working program</div>
-              <h2>We connect the pieces required to make the promise real.</h2>
+              <div className="eyebrow light-eyebrow">How we make it work</div>
+              <h2>Start with member value. Build around what the family should be able to continue.</h2>
               <p>
-                The customer proposition should feel simple. Making it responsible, viable, and
-                measurable requires coordinated product work behind the scenes.
+                The member proposition should feel simple. Behind it, Member Legacy brings together
+                the benefit design, economics, operations, and go-to-market work required to turn
+                the idea into a responsible program.
               </p>
             </div>
-            <div className="capability-grid">
-              {capabilities.map(({ number, icon: Icon, title, body }) => (
+            <div className="capability-grid capability-grid-three">
+              {programSteps.map(({ number, title, body }) => (
                 <article key={title}>
                   <div className="capability-topline">
-                    <Icon aria-hidden="true" size={23} strokeWidth={1.5} />
+                    <span>Program development</span>
                     <span>{number}</span>
                   </div>
                   <h3>{title}</h3>
@@ -443,10 +492,12 @@ export default function Home() {
           <div className="shell lifecycle-layout">
             <div className="lifecycle-intro">
               <div className="eyebrow">One program, multiple moments of value</div>
-              <h2>Build a promise that works across the customer lifecycle.</h2>
+              <h2>A promise members can understand can become a reason to choose, upgrade, and stay.</h2>
               <p>
-                Because the protection is connected to the partner’s product, the same program can
-                create a clear story from initial consideration through family continuity.
+                Because the protection is connected to the core member value proposition, the
+                program can tell one consistent story from initial consideration through the
+                moment the family needs it. Each program should define the business outcomes it is
+                intended to support and measure them through a controlled pilot.
               </p>
             </div>
             <div className="lifecycle-list">
@@ -471,8 +522,9 @@ export default function Home() {
                 <h2>One principle. Multiple program structures.</h2>
               </div>
               <p>
-                The right structure follows the customer relationship, the desired outcome, and
-                the economics the organization is prepared to support.
+                These are structures to evaluate. The right structure follows the member
+                relationship, the desired outcome, market availability, and the economics the
+                organization is prepared to support.
               </p>
             </div>
             <div className="structure-grid">
@@ -485,7 +537,7 @@ export default function Home() {
               ))}
             </div>
             <p className="qualification structure-qualification">
-              The appropriate structure depends on the customer population, business objective,
+              The appropriate structure depends on the member population, business objective,
               economics, product availability, and regulatory requirements.
             </p>
           </div>
@@ -495,13 +547,13 @@ export default function Home() {
           <div className="shell partner-fit-layout">
             <div className="partner-fit-copy">
               <div className="eyebrow light-eyebrow">Where the model fits</div>
-              <h2>Built for relationships customers choose to continue.</h2>
+              <h2>Built for membership relationships with real value to protect.</h2>
               <p>
-                Member Legacy is designed for organizations that already play a recurring and
-                trusted role in customers’ lives. Those customers may be members, account holders,
-                subscribers, or users. The relevant question is not the industry label. It is
-                whether the relationship carries enough meaning and economic value to support a
-                connected protection program.
+                The strongest opportunities begin with a trusted, recurring member relationship, a
+                product or service with tangible value, a defined population, and a clear reason to
+                strengthen the relationship. The model can apply across paid memberships, premium
+                account tiers, subscriptions, and other membership-based relationships without
+                being limited to a single industry.
               </p>
             </div>
             <div className="partner-fit-panel">
@@ -523,7 +575,7 @@ export default function Home() {
                 <h2>Know what the program has to prove before it launches.</h2>
               </div>
               <p>
-                Use a defined customer population, estimated program cost, and contribution margin
+                Use a defined member population, estimated program cost, and contribution margin
                 to calculate the incremental relationship value required to break even. The model
                 establishes a decision threshold. It does not predict performance.
               </p>
@@ -538,8 +590,8 @@ export default function Home() {
               <div className="eyebrow">Questions worth asking</div>
               <h2>Clarity before commitment.</h2>
               <p>
-                Partner-connected protection requires precise economics, responsibilities, and
-                customer language. A serious evaluation should surface these questions early.
+                Family continuity programs require precise economics, responsibilities, and member
+                language. A serious evaluation should surface these questions early.
               </p>
             </div>
             <div className="faq-list">
@@ -556,12 +608,12 @@ export default function Home() {
         <section className="closing-section">
           <div className="shell closing-card">
             <div className="closing-copy">
-              <div className="eyebrow light-eyebrow">Start with the relationship</div>
-              <h2>What should your customers’ families be able to continue?</h2>
+              <div className="eyebrow light-eyebrow">Start with what members value</div>
+              <h2>What should your members&apos; families be able to continue?</h2>
               <p>
-                Bring one customer group, one core product, and one business objective. Member
-                Legacy will help frame the protected outcome, program structure, economics,
-                operating model, and path to a controlled pilot.
+                Bring one member group, one core product or service, and one business objective.
+                Member Legacy will help frame a family continuity concept and a practical path to a
+                controlled pilot.
               </p>
             </div>
             <Link className="button button-inverse" href="/design-a-pilot#top">

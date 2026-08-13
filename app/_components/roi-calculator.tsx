@@ -80,7 +80,7 @@ export function ThresholdCalculator() {
 
           <div className="number-field-grid">
             <label className="number-field">
-              <span>Eligible customers</span>
+              <span>Eligible members</span>
               <small>People included in the business case denominator</small>
               <input
                 name="eligibleCustomers"
@@ -95,7 +95,7 @@ export function ThresholdCalculator() {
             </label>
 
             <label className="number-field">
-              <span>Covered customers</span>
+              <span>Covered members</span>
               <small>People whose benefit cost is included</small>
               <input
                 name="coveredCustomers"
@@ -110,7 +110,7 @@ export function ThresholdCalculator() {
             </label>
 
             <label className="number-field">
-              <span>Annual cost per covered customer</span>
+              <span>Annual cost per covered member</span>
               <small>Estimated benefit and variable administration cost</small>
               <div className="currency-input">
                 <span aria-hidden="true">$</span>
@@ -170,7 +170,7 @@ export function ThresholdCalculator() {
 
           {!coverageIsValid ? (
             <p className="calculator-validation" role="alert">
-              Covered customers cannot exceed eligible customers.
+              Covered members cannot exceed eligible members.
             </p>
           ) : null}
         </div>
@@ -199,7 +199,7 @@ export function ThresholdCalculator() {
               <strong>{hasCompleteInputs ? `${breakEvenRate.toFixed(2)}%` : "Not calculated"}</strong>
             </div>
             <div>
-              <span>Required margin per eligible customer</span>
+              <span>Required margin per eligible member</span>
               <strong>
                 {hasCompleteInputs
                   ? currency.format(requiredMarginPerEligibleMember)
@@ -211,7 +211,7 @@ export function ThresholdCalculator() {
             <span>How the threshold works</span>
             <strong>Total annual cost ÷ contribution margin per relationship</strong>
             <small>
-              Break even rate equals required incremental relationships divided by eligible customers.
+              Break even rate equals required incremental relationships divided by eligible members.
             </small>
           </div>
           <p>
@@ -234,7 +234,7 @@ export function ThresholdCalculator() {
             <span>Acquisition and selection</span>
             <h4>New and higher-value relationships</h4>
             <p>
-              Measure incremental customers or higher-value product and tier selection against the
+              Measure incremental members or higher-value product and tier selection against the
               approved pilot baseline.
             </p>
           </article>
@@ -250,7 +250,7 @@ export function ThresholdCalculator() {
             <span>Optional participation</span>
             <h4>Approved enhancement conversion</h4>
             <p>
-              Track customer-paid enhancement conversion only where the approved program includes
+              Track member-paid enhancement conversion only where the approved program includes
               an optional offer.
             </p>
           </article>

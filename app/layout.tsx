@@ -5,34 +5,34 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://memberlegacy.com"),
   title: {
-    default: "Member Legacy | Product-Connected Family Protection",
+    default: "Member Legacy | Family Continuity for Membership Organizations",
     template: "%s | Member Legacy",
   },
   description:
-    "Member Legacy designs family protection programs around the products and services customers already value, aligning benefit design, insurance economics, operations, and measurement.",
+    "Member Legacy offers family continuity programs built around the products and services members already value.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Member Legacy",
-    title: "Turn what customers rely on today into protection their families can rely on tomorrow.",
+    title: "Turn what members value today into protection their families can rely on tomorrow.",
     description:
-      "Product-connected family protection designed around your customer promise, economics, and operating model.",
+      "Family continuity programs built around the products and services members already value.",
     url: "/",
     images: [
       {
-        url: "/og.png",
+        url: "/og-membership.png",
         width: 1731,
         height: 909,
-        alt: "Member Legacy product-connected family protection",
+        alt: "Member Legacy family continuity for membership-based organizations",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Turn what customers rely on today into protection their families can rely on tomorrow.",
+    title: "Turn what members value today into protection their families can rely on tomorrow.",
     description:
-      "Product-connected family protection designed around your customer promise, economics, and operating model.",
-    images: ["/og.png"],
+      "Family continuity programs built around the products and services members already value.",
+    images: ["/og-membership.png"],
   },
 };
 

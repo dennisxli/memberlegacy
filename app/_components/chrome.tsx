@@ -77,7 +77,7 @@ export function Footer() {
         <div className="footer-brand">
           <Brand />
           <p className="footer-note">
-            Product-connected family protection, built around relationships customers already value.
+            Family continuity programs built around the products and services members already value.
           </p>
         </div>
         <div className="footer-navigation">

@@ -22,7 +22,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 12px;
 }
 
 body {
@@ -2828,14 +2828,6 @@ h2 {
 
 /* Product-connected positioning refresh */
 
-#why-it-matters,
-#our-approach,
-#business-value,
-#economics,
-#faq {
-  scroll-margin-top: 88px;
-}
-
 .product-hero .hero-grid {
   grid-template-columns: minmax(0, 1fr) minmax(470px, 1fr);
 }
@@ -3394,5 +3386,312 @@ h2 {
 
   .partner-fit-panel {
     padding: 28px 23px;
+  }
+}
+
+/* Membership narrative refinement */
+
+.product-hero .hero-principles {
+  align-items: flex-start;
+  display: grid;
+  gap: 9px;
+}
+
+.example-section {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 92% 14%, rgba(197, 154, 98, 0.15), transparent 25%),
+    radial-gradient(circle at 8% 88%, rgba(170, 189, 170, 0.1), transparent 24%),
+    var(--forest-deep);
+  color: var(--cream);
+}
+
+.example-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  align-items: end;
+  gap: clamp(54px, 9vw, 120px);
+  margin-bottom: 66px;
+}
+
+.example-intro h2 {
+  max-width: 800px;
+  margin: 18px 0 0;
+  color: var(--cream);
+  font-size: clamp(42px, 5.2vw, 68px);
+  line-height: 1.02;
+}
+
+.example-intro > p {
+  margin: 0;
+  color: #bdcbc4;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.example-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.example-flow::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 9%;
+  right: 9%;
+  top: 61px;
+  height: 1px;
+  background: rgba(231, 212, 182, 0.4);
+}
+
+.example-flow article {
+  position: relative;
+  z-index: 1;
+  min-height: 352px;
+  padding: 38px 28px 34px;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.example-step-number {
+  width: 47px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 70px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: var(--forest-deep);
+  color: var(--gold-pale);
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.example-flow h3 {
+  margin: 0 0 14px;
+  color: var(--cream);
+  font-size: 25px;
+  line-height: 1.14;
+}
+
+.example-flow p {
+  margin: 0;
+  color: #aebfb7;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.example-reveal,
+.example-value {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.32fr) minmax(0, 1.68fr);
+  align-items: start;
+  gap: clamp(28px, 6vw, 84px);
+}
+
+.example-reveal {
+  padding: clamp(34px, 5vw, 54px);
+  background: var(--cream);
+}
+
+.example-reveal > span,
+.example-value > span {
+  color: var(--forest-soft);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.example-reveal p {
+  max-width: 900px;
+  margin: 0;
+  color: var(--forest-deep);
+  font-family: var(--serif);
+  font-size: clamp(27px, 3vw, 40px);
+  line-height: 1.2;
+}
+
+.example-value {
+  padding: 31px clamp(34px, 5vw, 54px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 0;
+}
+
+.example-value > span {
+  color: var(--gold-pale);
+}
+
+.example-value p {
+  max-width: 900px;
+  margin: 0;
+  color: #c3d0ca;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.example-qualification {
+  color: #879c92;
+}
+
+.mapping-section {
+  background:
+    radial-gradient(circle at 88% 14%, rgba(170, 189, 170, 0.2), transparent 25%),
+    var(--paper);
+  color: var(--ink);
+}
+
+.mapping-intro h2 {
+  color: var(--forest-deep);
+}
+
+.mapping-copy p {
+  color: var(--muted);
+}
+
+.mapping-section .product-map {
+  border-color: var(--line);
+}
+
+.mapping-section .product-map-head span,
+.mapping-section .product-map-row > div {
+  border-color: var(--line);
+}
+
+.mapping-section .product-map-head span {
+  color: var(--forest-soft);
+}
+
+.mapping-section .product-map-row:nth-child(odd) > div {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.mapping-section .product-map-row strong {
+  color: var(--forest-deep);
+}
+
+.mapping-section .product-map-row div:nth-child(2),
+.mapping-section .product-map-row div:nth-child(3) {
+  color: var(--muted);
+}
+
+.mapping-section .product-map-row svg {
+  color: var(--gold);
+}
+
+.mapping-section .qualification {
+  color: #6f7d77;
+}
+
+.capability-grid-three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.capability-grid-three article {
+  min-height: 330px;
+}
+
+.capability-grid-three .capability-topline > span:first-child {
+  color: var(--gold-pale);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1040px) {
+  .example-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .example-flow::before {
+    display: none;
+  }
+
+  .example-flow article,
+  .capability-grid-three article {
+    min-height: 300px;
+  }
+
+  .example-step-number {
+    margin-bottom: 52px;
+  }
+}
+
+@media (max-width: 900px) {
+  .example-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .example-intro > p {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mapping-section .product-map-row {
+    border-color: var(--line);
+  }
+
+  .mapping-section .product-map-row > div::before {
+    color: var(--forest-soft);
+  }
+}
+
+@media (max-width: 640px) {
+  .product-hero-lede {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .product-hero .hero-principles {
+    gap: 8px;
+    margin-top: 28px;
+    padding-top: 20px;
+  }
+
+  .product-hero .hero-principles span {
+    align-items: flex-start;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .product-hero .hero-principles svg {
+    flex: 0 0 auto;
+    margin-top: 1px;
+  }
+
+  .example-flow,
+  .capability-grid-three {
+    grid-template-columns: 1fr;
+  }
+
+  .example-flow article,
+  .capability-grid-three article {
+    min-height: 0;
+  }
+
+  .example-step-number {
+    margin-bottom: 38px;
+  }
+
+  .example-reveal,
+  .example-value {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .example-reveal {
+    padding: 30px 24px;
+  }
+
+  .example-value {
+    padding: 28px 24px;
   }
 }
