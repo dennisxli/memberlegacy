@@ -79,14 +79,14 @@ const productMappings = [
     outcome: "Making progress toward important family goals",
   },
   {
-    relationship: "Paid access or services",
-    concept: "Continued access or a related defined benefit",
-    outcome: "Receiving familiar support without an immediate interruption",
+    relationship: "Housing payments",
+    concept: "Capped rent support for a defined period",
+    outcome: "Remaining securely housed while the household adjusts",
   },
   {
-    relationship: "Recurring financial commitments",
-    concept: "Temporary support tied to a defined obligation",
-    outcome: "Gaining time and financial breathing room",
+    relationship: "Education and care",
+    concept: "Defined tuition, childcare, or household-care support",
+    outcome: "Preserving a familiar education or care arrangement",
   },
 ];
 
@@ -392,8 +392,8 @@ export default function Home() {
                 </p>
                 <p>
                   Household essentials are one example. The same design principle can apply to
-                  saving and investing, paid access and services, recurring financial commitments,
-                  and other products with tangible value in members’ lives.
+                  saving and investing, housing payments, education and care, and other products
+                  with tangible value in members’ lives.
                 </p>
               </div>
             </div>
@@ -553,7 +553,9 @@ export default function Home() {
                 product or service with tangible value, a defined population, and a clear reason to
                 strengthen the relationship. The model can apply across paid memberships, premium
                 account tiers, subscriptions, and other membership-based relationships without
-                being limited to a single industry.
+                being limited to a single industry. The clearest fit is where the family would still
+                need the product or service after a covered event, making the protection easy for
+                members to understand and connect to the organization.
               </p>
             </div>
             <div className="partner-fit-panel">

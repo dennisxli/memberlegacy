@@ -109,7 +109,7 @@ export function DesignPilotForm() {
           name="targetCustomerGroup"
           type="text"
           maxLength={300}
-          placeholder="For example, a specific account tier or customer cohort"
+          placeholder="For example, premium-tier members, active renters, enrolled families, or account holders"
         />
       </label>
 
